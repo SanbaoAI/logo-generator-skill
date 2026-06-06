@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/logo-generator/input.json",
+  "title": "LogoGeneratorInput",
+  "description": "Input schema for the Logo Generator skill",
+  "type": "object",
+  "required": ["brand_name", "brief"],
+  "additionalProperties": false,
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Company, product, campaign, event, IP, or brand name to feature in the logo"
+    },
+    "logo_type": {
+      "type": "string",
+      "enum": ["company", "brand", "product", "cultural-creative", "campaign", "advertising", "event", "app", "sub-brand", "personal-brand", "other"],
+      "description": "Type of logo to generate; omit if it should be inferred from the brief"
+    },
+    "brief": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "What is being branded, who it serves, its value proposition, personality, and usage context"
+    },
+    "audience": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Optional target audience or buyer/user group"
+    },
+    "preferred_style": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Optional visual style preference, such as minimal, modern, vintage, playful, corporate, tech, luxury, cute, heritage, bold, or organic"
+    },
+    "reference_style": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Optional written description of a visual reference, including layout, typography, color restraint, spacing, and mood. Use references as guidance only, not for copying a mark."
+    },
+    "output_layout": {
+      "type": "string",
+      "enum": ["brand-system-board", "identity-board", "standalone-logo", "square-avatar", "transparent-asset"],
+      "default": "brand-system-board",
+      "description": "Preferred direct-render layout. brand-system-board uses a square numbered guideline grid with main logo, favicon, seal, lockup, applications, mockups, symbol meaning, and footer values."
+    },
+    "target_platform": {
+      "type": "string",
+      "enum": ["gpt-image", "midjourney", "flux", "ideogram", "all"],
+      "default": "all",
+      "description": "Which image model prompts to emphasize; default outputs all variants"
+    },
+    "render_image": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, generate an actual logo image after creating the final prompt if an image-generation tool is available"
+    },
+    "revision_notes": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Iteration feedback when refining a previous concept"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN",
+      "description": "Preferred language for the response"
+    }
+  },
+  "examples": [
+    {
+      "brand_name": "Nebula",
+      "logo_type": "company",
+      "brief": "A cloud infrastructure platform that helps startups deploy and scale applications with zero DevOps overhead. Targets technical founders who value speed and reliability.",
+      "preferred_style": "tech"
+    },
+    {
+      "brand_name": "SanBaoTech",
+      "logo_type": "company",
+      "brief": "一家专注 AI、AI 社区和 AI 应用的科技公司，帮助用户理解、交流并落地 AI 工具与产品。品牌字标使用英文 SanBaoTech。",
+      "preferred_style": "minimal, premium, abstract",
+      "reference_style": "Black-and-ivory square brand system board with numbered grid modules, main logo, favicon, seal version, wordmark lockup, black/ivory applications, editorial or product mockup, embossed application, symbol meaning, and footer values.",
+      "output_layout": "brand-system-board"
+    },
+    {
+      "brand_name": "城市有礼",
+      "logo_type": "cultural-creative",
+      "brief": "城市文创伴手礼品牌，将地方建筑纹样、非遗手作和年轻化包装结合，用于帆布袋、徽章、礼盒和线下展陈。",
+      "preferred_style": "heritage modern"
+    },
+    {
+      "brand_name": "夏日焕新季",
+      "logo_type": "campaign",
+      "brief": "商场夏季促销活动主视觉 Logo，面向年轻家庭和都市白领，需要有清爽、活力、易传播的广告识别。",
+      "preferred_style": "bright modern"
+    }
+  ]
+}
