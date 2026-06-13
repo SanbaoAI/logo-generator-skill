@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://xinteract.dev/schemas/logo-generator/input.json",
-  "title": "LogoGeneratorInput",
-  "description": "Input schema for the Logo Generator skill",
+  "$id": "https://xinteract.dev/schemas/base-logo-generator/input.json",
+  "title": "BaseLogoGeneratorInput",
+  "description": "Input schema for the Base Logo Generator skill",
   "type": "object",
   "required": ["brand_name", "brief"],
   "additionalProperties": false,

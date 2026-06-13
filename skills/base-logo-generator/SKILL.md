@@ -1,5 +1,5 @@
 ---
-name: logo-generator
+name: base-logo-generator
 description: Generate logo creative directions, image-generation prompts, and optionally direct logo images for company logos, brand logos, cultural/creative merchandise logos, product logos, campaign and advertising logos, event logos, app logos, sub-brand logos, and related visual identity marks. Use when the user asks for logo concepts, logo prompt writing, logo direction, brand symbol ideas, direct logo image generation, or revisions to an existing logo concept.
 ---
 

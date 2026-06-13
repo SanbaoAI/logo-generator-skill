@@ -1,0 +1,13 @@
+# Logo Generator Skill
+
+This repository contains three installable Agent Skills.
+
+| Install name | Path | Purpose |
+| --- | --- | --- |
+| `base-logo-generator` | `skills/base-logo-generator/SKILL.md` | Generate base logo creative directions, brand-system board layouts, and image-generation prompts. |
+| `mascot-logo-generator` | `skills/mascot-logo-generator/SKILL.md` | Generate mascot-derived logo marks by extracting signature features from animals, characters, objects, celestial forms, or mascot-like sources. |
+| `logo-colorway-generator` | `skills/logo-colorway-generator/SKILL.md` | Add restrained color systems and colorway prompts to existing logos or generated brand-system boards without changing the underlying symbol. |
+
+Use `base-logo-generator` for foundational company logos, product logos, app icons, campaign marks, cultural/creative merchandise logos, and sub-brand marks.
+Use `mascot-logo-generator` when the logo should come from a mascot-like source such as a paw, animal head, antlers, tusks, alien eyes, crescent moon, helmet, or similar recognizable feature.
+Use `logo-colorway-generator` after a logo already exists and the user wants to add color palettes, recolor the board, or generate colorway applications.
