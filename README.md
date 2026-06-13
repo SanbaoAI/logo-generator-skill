@@ -1,223 +1,294 @@
-# Brand System Board Generator
+# Logo Generator Skill
 
-[中文](README.zh-CN.md)
+*The Brand Design System for AI Agents*
 
-Not just a logo — a complete **brand specification board**. Turn a short brand brief into a polished, editorial-grade brand-system page with numbered modules for the main logo, favicon, seal, wordmark lockup, applications, mockups, symbol meaning, and footer values.
+**Agent Skills** that turn a brand brief into a complete visual identity — logo direction, brand-system board, mascot marks, and scenario colorways. Pair with **Codex** to generate polished boards directly via `imagegen`, or use the prompts with GPT Image, Midjourney, Flux, and Ideogram.
 
-## Showcase
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Supported agents](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#installing) [![Skills](https://img.shields.io/badge/Skills-3-green.svg)](#skills) [![Image generation](https://img.shields.io/badge/Image%20Generation-GPT%20Image%20%C2%B7%20Midjourney%20%C2%B7%20Flux%20%C2%B7%20Ideogram-orange.svg)](#codex--image-generation)
 
-These samples demonstrate the skill's core output: a premium brand-system specification board that evaluates whether a mark can become a real identity system.
+**[中文](README.zh-CN.md)** &nbsp;·&nbsp; **English**
 
-### Moss Lab
+<p align="center"><sub>Base Logo &mdash; premium, restrained identity marks</sub></p>
+<p align="center">
+  <img src="skills/base-logo-generator/assets/sanbaotech-brand-system-board.png" alt="SanBaoTech brand system board" width="32%" />
+  <img src="skills/base-logo-generator/assets/moss-lab-brand-system-board.png" alt="Moss Lab brand system board" width="32%" />
+  <img src="skills/base-logo-generator/assets/low-energy-brand-system-board.png" alt="Low Energy brand system board" width="32%" />
+</p>
 
-![Moss Lab brand system board](assets/moss-lab-brand-system-board.png)
+<p align="center"><sub>Mascot Logo &mdash; feature extraction from animals, characters, and celestial forms</sub></p>
+<p align="center">
+  <img src="skills/mascot-logo-generator/assets/aster-koi-brand-system-board.png" alt="Aster Koi mascot brand system board" width="32%" />
+  <img src="skills/mascot-logo-generator/assets/strix-forge-brand-system-board.png" alt="Strix Forge mascot brand system board" width="32%" />
+  <img src="skills/mascot-logo-generator/assets/manta-vale-brand-system-board.png" alt="Manta Vale mascot brand system board" width="32%" />
+</p>
 
-Moss Lab is treated as a calm research/creative lab identity. The direction blends moss micro-ecology with laboratory precision: a compact petri-dish or microscope-slide symbol, deep forest green, fresh moss green, warm off-white, and a clean modern sans wordmark.
+<p align="center"><sub>Colorway &mdash; scenario-based recolor and signature brand color</sub></p>
+<p align="center">
+  <img src="skills/logo-colorway-generator/assets/sanbaotech-colorway-board.png" alt="SanBaoTech colorway board" width="32%" />
+  <img src="skills/logo-colorway-generator/assets/aster-koi-colorway-board.png" alt="Aster Koi colorway board" width="32%" />
+  <img src="skills/logo-colorway-generator/assets/manta-vale-colorway-board.png" alt="Manta Vale colorway board" width="32%" />
+</p>
 
-Final prompt summary: generate a square black-and-ivory brand-system board reading exactly "Moss Lab", with numbered modules for the main logo, favicon, seal, lockup, applications, mockups, symbol meaning, and footer values. Keep it editorial, restrained, scalable, and free of generic AI symbols.
+[Install](#installing) · [Skills](#skills) · [Which one?](#which-skill-should-i-use) · [Codex & Images](#codex--image-generation) · [Workflow](#workflow) · [Base](#base-logo-generator) · [Mascot](#mascot-logo-generator) · [Colorway](#logo-colorway-generator) · [Schemas](#input-schemas) · [FAQ](#faq)
 
-### LOW ENERGY
+---
 
-![LOW ENERGY brand system board](assets/low-energy-brand-system-board.png)
+## Why This Exists
 
-LOW ENERGY is treated as a low-effort, relaxed apparel identity for understated daily outfits. The direction combines a soft fabric fold with a subtle low-battery negative-space idea, using charcoal, muted sage, washed sky blue, and warm off-white.
+Most logo prompts stop at *"make a minimal logo."* This repo is a **complete brand design system** — three modular skills that work independently or as a pipeline:
 
-Final prompt summary: generate a square black-and-ivory brand-system board reading exactly "LOW ENERGY", with numbered modules for the main logo, favicon, seal, lockup, label applications, garment or editorial mockups, symbol meaning, and footer values. Keep it quiet, apparel-ready, memorable, and premium.
+1. **`base-logo-generator`** — premium, restrained logo design for companies and products
+2. **`mascot-logo-generator`** — mascot-derived marks that extract one recognizable feature from an animal, character, or celestial form
+3. **`logo-colorway-generator`** — scenario-based color systems that make any existing logo pop at first glance
 
-### SanBaoTech
+Every skill outputs a **brand-system board** — a square guideline grid with numbered modules: main logo, favicon, seal, wordmark lockup, black/ivory applications, mockups, embossed application, and symbol meaning. Not just a centered logo on white.
 
-![SanBaoTech brand system board](assets/sanbaotech-brand-system-board.png)
+Each skill does one job. Install only what you need, or chain them for a full brief → logo → colorway pipeline.
 
-SanBaoTech is treated as a premium AI company focused on AI communities, AI applications, and practical product ecosystems. The direction uses an abstract, editorial, black-and-ivory system with a memorable symbol and a refined English wordmark.
+## Installing
 
-Final prompt summary: generate a square brand-system board reading exactly "SanBaoTech", with numbered modules for main logo, favicon, seal version, wordmark lockup, black/ivory applications, product or editorial mockups, symbol meaning, and footer values. Keep it mostly monochrome, premium, instantly recognizable, one-color friendly, and free of generic AI cliches.
+The [`npx skills add`](https://github.com/vercel-labs/agent-skills) CLI scans the `skills/` folder, so all three skills install the same way.
 
-## Overview
+Install all skills:
 
-This skill goes beyond simple logo image generation. It produces a **brand specification board** — a complete creative package that includes strategic thinking, symbol concept, visual system notes, and a polished brand-system page layout. It supports company logos, brand logos, cultural/creative merchandise logos, product logos, campaign and advertising logos, event logos, app logos, and sub-brand marks. Outputs are optimized for **GPT Image**, **Midjourney**, **Flux**, and **Ideogram**.
+```bash
+npx skills add https://github.com/SanbaoAI/logo-generator-skill
+```
 
-The default output is not a single centered logo on a blank canvas, but a **brand-system board**: a square ivory guideline page with numbered sections for `MAIN LOGO`, `FAVICON`, `SEAL VERSION`, `WORDMARK LOCKUP`, applications, mockups, symbol meaning, and footer values. This format is designed to evaluate whether a logo can work as a real identity system — testing scalability, one-color behavior, lockup flexibility, and contextual application — rather than just looking attractive as a standalone graphic.
+Install a single skill by its **install name**:
 
-## Input
+```bash
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "base-logo-generator"
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "mascot-logo-generator"
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "logo-colorway-generator"
+```
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `brand_name` | Yes | Company, product, campaign, event, IP, or brand name |
-| `brief` | Yes | What is being branded, audience, value proposition, personality, and usage context |
-| `logo_type` | No | `company` · `brand` · `product` · `cultural-creative` · `campaign` · `advertising` · `event` · `app` · `sub-brand` · `personal-brand` · `other` |
-| `preferred_style` | No | Visual style preference, such as `minimal`, `modern`, `heritage modern`, `playful`, `corporate`, `tech`, `luxury`, or `bold` |
-| `reference_style` | No | Written description of a visual reference's layout, spacing, typography, color restraint, and mood |
-| `output_layout` | No | `brand-system-board` · `identity-board` · `standalone-logo` · `square-avatar` · `transparent-asset`; default is `brand-system-board` for direct renders |
-| `target_platform` | No | `gpt-image` · `midjourney` · `flux` · `ideogram` · `all` |
-| `render_image` | No | `true` to generate an actual logo image after creating the final prompt, when image generation is available |
+You can also copy any `SKILL.md` into your project or paste it into Codex / Claude Code / Cursor conversations:
 
-## Output
+```bash
+cp -r skills/base-logo-generator ~/.codex/skills/
+```
 
-| Section | Description |
-|---------|-------------|
-| **Logo Direction** | Brand positioning, visual mood, color palette, typography, composition |
-| **Symbol Concept** | Core metaphor, icon form, and rationale |
-| **Visual System Notes** | Lockups, one-color behavior, small-size behavior, and usage notes |
-| **Brand System Board Layout** | Direct-render board layout with numbered modules for main logo, favicon, seal, lockup, applications, mockups, symbol meaning, and footer values |
-| **Final Image Prompt** | Paste-ready prompts: Universal, GPT Image, Midjourney, Flux, Ideogram |
-| **Generated Logo** | Optional direct image output when `render_image: true` or the user asks to generate/render the logo |
+## Skills
 
-## Quick Start
+Each skill does one job; you do not need all of them at once. The `Install name` column is the exact value you pass to `--skill`.
+
+| Skill (folder) | Install name | Description |
+| --- | --- | --- |
+| **base-logo-generator** | `base-logo-generator` | Premium, restrained logo design for company, product, app, campaign, event, and cultural/creative marks. Symbol logic comes from brand strategy, metaphor, geometry, negative space, and typography — not from a mascot source. Outputs black/ivory brand-system boards. |
+| **mascot-logo-generator** | `mascot-logo-generator` | Mascot-derived logo marks. Starts from an animal, character, object, or celestial form, extracts one recognizable feature (paw, antler, crescent, tusk, etc.), and reduces it into a flat, scalable, trademarkable silhouette. Same board layout as base. |
+| **logo-colorway-generator** | `logo-colorway-generator` | Post-processing: adds scenario-based color systems to any existing logo or board. Preserves the original symbol, wordmark, and silhouette. Creates 2-4 palette routes with hex values, a signature brand color, and real-world application mockups. |
+
+### Which skill should I use?
+
+- Start with **base-logo-generator** for foundational company and product logos — clean, premium, restrained.
+- Use **mascot-logo-generator** when the mark should come from a recognizable animal, character, or celestial feature.
+- Use **logo-colorway-generator** after a logo already exists and needs memorable colors, scenario applications, or a signature brand color that grabs attention.
+- Chain **base → colorway** or **mascot → colorway** for a full brand identity pipeline.
+
+## Codex & Image Generation
+
+All three skills work with **Codex** out of the box. When an image-generation tool is available (e.g. Codex `imagegen`, ChatGPT Images), the skill prepares the full creative direction first, then calls the tool to generate a polished board.
+
+**No image tool?** The skills return the final prompt ready to paste into GPT Image, Midjourney, Flux, or Ideogram.
+
+**Image-first tip:** State the pipeline in your prompt — e.g. *"Generate a logo board, then add a colorway"* — and the agent will follow the skills in sequence.
+
+## Workflow
+
+```
+   Step 1 — generate logo (choose one)        Step 2 — post-process (optional)
+ ┌─────────────────────────────────┐        ┌───────────────────────────────┐
+ │  base-logo-generator             │        │                               │
+ │    OR                            │  ───▶  │  logo-colorway-generator      │
+ │  mascot-logo-generator           │        │                               │
+ └─────────────────────────────────┘        └───────────────────────────────┘
+   Brief → Logo + Brand-System Board           Existing Logo → Palette + Scenarios
+```
+
+Each skill works standalone. Use the colorway skill after either logo skill to add a signature color system.
+
+---
+
+## `base-logo-generator`
+
+Premium, restrained logo design — the foundation of any brand identity. The symbol comes from brand strategy, metaphor, geometry, negative space, or product meaning — not from a mascot source. The result should feel sophisticated, durable, and distinctly ownable.
+
+**Outputs:**
+
+| Section | What You Get |
+| --- | --- |
+| Logo Direction | Positioning, visual mood, palette, type direction, composition |
+| Symbol Concept | Core metaphor, icon form, negative space, 2-4 alternate routes |
+| Visual System Notes | Lockups, one-color behavior, small-size legibility, usage surfaces |
+| Brand System Board | Numbered modules: main logo, favicon, seal, lockup, applications, mockups, symbol meaning |
+| Final Image Prompts | Universal, GPT Image, Midjourney, Flux, Ideogram variants |
+| Generated Logo | Direct image when an image tool is available |
+
+<details>
+<summary>Example input</summary>
 
 ```json
 {
-  "brand_name": "Nebula",
+  "brand_name": "SanBaoTech",
   "logo_type": "company",
-  "brief": "A cloud infrastructure platform that helps startups deploy and scale applications with zero DevOps overhead.",
-  "preferred_style": "tech",
+  "brief": "A premium AI company focused on AI communities, AI applications, and practical product ecosystems.",
+  "preferred_style": "minimal, premium, abstract",
+  "output_layout": "brand-system-board",
+  "target_platform": "all"
+}
+```
+</details>
+
+> Generate a logo creative package using the base-logo-generator skill.
+
+---
+
+## `mascot-logo-generator`
+
+Mascot-derived marks with the same premium board layout. Different symbol logic: extract one recognizable feature from an animal, character, object, or celestial form, then compress it into a flat, scalable, trademarkable silhouette.
+
+**Good feature sources:** paws, head profiles, antlers, ears, tusks, eye shapes, masks, wings, tail curves, crescents, helmets, fruit cutouts.
+
+Must not copy famous mascot silhouettes or trademark-specific proportions. Existing brands are method references only.
+
+<details>
+<summary>Example input</summary>
+
+```json
+{
+  "brand_name": "Moonshade",
+  "logo_type": "brand",
+  "brief": "A quiet fantasy technology brand that needs a mysterious but premium symbol.",
+  "preferred_style": "minimal, premium, mysterious",
+  "mascot_source": "half moon",
+  "mascot_feature_focus": "crescent edge and shadow cutout",
   "output_layout": "brand-system-board"
 }
 ```
+</details>
 
-Paste the JSON (or describe the company in plain text) and ask:
+> Generate a mascot-derived logo using the mascot-logo-generator skill.
 
-> Generate logo concepts using the logo-generator skill.
+---
 
-The agent returns the complete output sections. Copy the platform-specific prompt into your image tool of choice.
+## `logo-colorway-generator`
 
-To generate an image directly, ask:
+Post-processing skill for scenario-based color systems. Use after a logo concept, image, or full board already exists. Preserves the original symbol, wordmark, silhouette, and one-color usability — only adds memorable color and real-world application rules.
 
-> Generate a Moss Lab logo image using the logo-generator skill.
+Creates a **signature brand color** that grabs attention at first glance, validated across app icons, packaging, signage, social, and merch.
 
-Or set:
+**Outputs:**
 
-```json
-{
-  "brand_name": "Moss Lab",
-  "brief": "An AI tools brand for independent developers and designers...",
-  "render_image": true
-}
-```
+| Section | What You Get |
+| --- | --- |
+| Existing Logo Read | What the source mark is and what must be preserved |
+| Palette Routes | 2-4 color routes with impact level and hex values |
+| Chosen Color System | Signature color, primary, secondary, accent, neutral, dark, one-color fallback |
+| First-Glance Impact | Why the colorway is more memorable in app, shelf, merch, or social |
+| Scenario Layout | How background, layout, and modules make the colorway broadly usable |
+| Color Application Rules | Where each color appears across logo modules and mockups |
+| Colorway Board Layout | How to render the scenario-based recolored board |
+| Final Recolor Prompts | Platform-ready recolor prompts |
 
-When direct generation is requested, the agent prepares the creative direction and uses the strongest GPT Image or Universal prompt to create one polished brand-system board by default: a square guideline page with numbered sections for `MAIN LOGO`, `FAVICON`, `SEAL VERSION`, `WORDMARK LOCKUP`, applications, mockups, symbol meaning, and footer values. Ask for `identity-board`, `standalone-logo`, `square-avatar`, or `transparent-asset` when you need a simpler output.
-
-## Brand System Board Style
-
-The default direct-render layout follows a complete premium brand-spec board:
-
-- Square ivory canvas with a thin outer border and fine internal grid lines.
-- Numbered modules for `MAIN LOGO`, `FAVICON`, `SEAL VERSION`, `WORDMARK LOCKUP`, applications, mockups, and `SYMBOL MEANING`.
-- Mostly black and ivory, with a tiny deep-red accent line or dot when useful.
-- A footer strip with compact values such as `OUR MISSION`, `OUR VIEW`, `OUR STANDARD`, and `OUR PROMISE`.
-- Consistent symbol reuse across favicon, seal, lockup, applications, and mockups.
-
-This style is useful for evaluating whether a logo can become a real identity system rather than only an attractive single graphic.
-
-## Worked Example: Moss Lab
-
-### Example Input
+<details>
+<summary>Example input</summary>
 
 ```json
 {
-  "brand_name": "Moss Lab",
-  "logo_type": "brand",
-  "brief": "An AI tools brand for independent developers and designers. The logo should feel intelligent, calm, and laboratory-like, without robot heads, brains, circuit boards, or generic AI symbols. Main uses include website branding, app icon, and open-source project avatar.",
-  "preferred_style": "minimal, quiet, experimental",
-  "target_platform": "all",
-  "render_image": true
+  "brand_name": "Aster Koi",
+  "source_logo_description": "Existing mascot-derived brand-system board with koi tail split and water ripple symbol.",
+  "brand_context": "Premium tea and botanical lifestyle brand.",
+  "palette_direction": "warm ivory base with persimmon signature color, pond green support, ink black",
+  "color_impact": "memorable",
+  "layout_mode": "adaptive-scenario-board",
+  "colorway_count": 3,
+  "output_layout": "colorway-board"
 }
 ```
+</details>
 
-### Generated Result
+> Add a colorway system using the logo-colorway-generator skill.
 
-#### Logo Direction
+---
 
-Position Moss Lab as a calm AI workshop: precise, useful, and quietly inventive. The visual mood should combine the softness of moss with the discipline of a lab mark, using a compact symbol that feels organic but engineered.
+## Input Schemas
 
-Use a restrained palette of deep moss green, graphite, warm off-white, and a small pale mint accent. Typography should be a clean geometric sans with subtle humanist warmth, such as a softened grotesk or rounded technical sans. The composition should support a horizontal wordmark for the website, a stacked lockup for documentation, and a square icon for GitHub or app surfaces.
+**Base & Mascot** (shared core fields):
 
-This direction fits an AI tools brand because it avoids loud futurism and instead signals thoughtful utility, craft, and reliability for makers.
+| Field | Required | Description |
+| --- | --- | --- |
+| `brand_name` | **Yes** | Company, product, campaign, event, IP, or brand name |
+| `brief` | **Yes** | What's being branded, audience, value proposition, personality |
+| `logo_type` | No | `company` `brand` `product` `cultural-creative` `campaign` `advertising` `event` `app` `sub-brand` `personal-brand` `other` |
+| `preferred_style` | No | minimal, modern, playful, corporate, tech, luxury, bold, organic, etc. |
+| `output_layout` | No | `brand-system-board` (default), `identity-board`, `standalone-logo`, `square-avatar`, `transparent-asset` |
+| `target_platform` | No | `gpt-image` `midjourney` `flux` `ideogram` `all` (default) |
+| `render_image` | No | Generate an image when an image tool is available |
+| `reference_style` | No | Written description of a visual reference (method only, not for copying) |
+| `revision_notes` | No | Iteration feedback when refining a previous concept |
+| `output_language` | No | `zh-CN` (default) or `en` |
 
-#### Symbol Concept
+**Mascot-only additional fields:**
 
-The primary symbol is a rounded lab tile containing a small negative-space monogram: an `M` suggested by two moss-like arcs and a central vertical stem, also reading as a quiet test sample under observation. The mark should be simple enough to work as a favicon and distinct enough to avoid common AI cliches.
+| Field | Required | Description |
+| --- | --- | --- |
+| `mascot_source` | No | Source entity: deer, bear paw, mammoth head, crescent moon, etc. |
+| `mascot_feature_focus` | No | Feature to extract: antlers, paw pads, tusks, ears, crescent edge, etc. |
 
-Alternative symbolic routes:
+**Colorway** core fields:
 
-- A minimal petri-dish circle with an `M` formed from growing negative space.
-- A lab flask silhouette reduced into a leaf-like `M`, without becoming botanical decoration.
-- A square terminal cursor combined with a soft moss patch, suggesting code plus organic experimentation.
+| Field | Required | Description |
+| --- | --- | --- |
+| `brand_name` | **Yes** | Exact brand name in the existing logo |
+| `source_logo_description` | **Yes** | Description of existing logo/board and what must be preserved |
+| `brand_context` | No | Category, audience, personality, usage surfaces |
+| `palette_direction` | No | Desired mood, specific colors, or colors to avoid |
+| `color_impact` | No | `restrained` `memorable` (default) `high-impact` `experimental` |
+| `layout_mode` | No | `adaptive-scenario-board` (default), `preserve-original-board`, `campaign-colorway-board`, `application-mockup-board` |
+| `audience_scope` | No | `broad-mainstream` (default), `premium-niche`, `youthful-pop`, `enterprise`, `cultural-collectible` |
+| `background_direction` | No | Board background or scene direction |
+| `colorway_count` | No | Palette routes to propose, 1-4 (default 3) |
 
-#### Visual System Notes
+Full schemas: [`base`](skills/base-logo-generator/input-schema.json) · [`mascot`](skills/mascot-logo-generator/input-schema.json) · [`colorway`](skills/logo-colorway-generator/input-schema.json)
 
-Use three lockups: symbol plus wordmark, symbol above wordmark, and standalone app/avatar icon. The one-color version should preserve the negative-space `M` clearly in black, white, or moss green. At small sizes, remove secondary detail and keep only the rounded tile, the `M` cutout, and one clean accent shape.
+---
 
-For open-source avatars, use the standalone symbol on a warm off-white or graphite background. For website headers, pair the icon with a quiet wordmark and generous spacing. Avoid gradients, glowing AI effects, molecule diagrams, and overly literal lab equipment.
+## Project Layout
 
-#### Final Image Prompt
-
-##### Universal
-
-Create a premium minimalist logo for "Moss Lab", an AI tools brand for independent developers and designers. Design a compact symbol that combines the feeling of soft moss growth with a precise laboratory sample tile. Use a rounded square or circular lab-tile icon with a negative-space `M` formed from two organic arcs and a central stem. Pair it with a clean geometric sans wordmark reading "Moss Lab". Mood: intelligent, calm, experimental, trustworthy. Palette: deep moss green, graphite, warm off-white, pale mint accent. Vector-like, scalable, one-color friendly, favicon-ready. No robot heads, brains, circuit boards, globes, wifi icons, generic AI symbols, light bulbs, shields, or swooshes.
-
-##### GPT Image
-
-Design a clean vector-style logo on a plain warm off-white background for the brand "Moss Lab". The logo should include a compact icon and readable wordmark. The icon is a rounded lab sample tile in deep moss green, with a simple negative-space `M` shaped from two soft moss-like arcs and one precise central stem. The wordmark says exactly "Moss Lab" in a quiet geometric sans typeface with subtle warmth. The overall feeling is intelligent, calm, experimental, and useful for AI tools made for independent developers and designers. Keep the logo flat, premium, balanced, and usable at small app-icon size. Avoid robot heads, brains, circuit boards, generic AI imagery, glowing effects, complex lab equipment, and decorative swooshes.
-
-##### Midjourney
-
-premium minimalist vector logo for "Moss Lab", AI tools brand for indie developers and designers, rounded lab sample tile icon, negative space M made from soft moss arcs and precise central stem, calm intelligent experimental mood, deep moss green graphite warm off-white pale mint accent, clean geometric sans wordmark, flat scalable favicon friendly, no robot head no brain no circuit board no generic AI symbol no glow --ar 1:1 --v 6 --style raw
-
-##### Flux
-
-Moss Lab logo, premium minimalist vector mark, AI tools brand, independent developers and designers, rounded lab sample tile, negative-space M, soft moss arcs, precise central stem, calm intelligent experimental, deep moss green, graphite, warm off-white, pale mint accent, clean geometric sans wordmark, flat design, scalable, one-color friendly, favicon-ready, no robot, no brain, no circuit board, no generic AI icon, no glow
-
-##### Ideogram
-
-Create a clean vector-like logo with exact readable text: "Moss Lab". Use a compact rounded lab-tile icon beside the wordmark. The icon should show a negative-space capital `M` formed by two soft moss-like arcs and a precise central stem. Style: premium minimalist, calm, intelligent, experimental, made for an AI tools brand serving independent developers and designers. Colors: deep moss green, graphite, warm off-white, small pale mint accent. Make the wordmark crisp and correctly spelled. Avoid robot heads, brains, circuit boards, generic AI symbols, glow effects, and clutter.
-
-## Directory Structure
-
-```
+```text
 logo-generator-skill/
-├── SKILL.md            # Skill definition and workflow
-├── prompt.md           # Output templates and platform notes
-├── input-schema.json   # Input JSON Schema
-├── README.md           # English documentation (this file)
-└── README.zh-CN.md     # Chinese documentation
+├── skill.sh                          # Skill path resolver
+├── skills/
+│   ├── llms.txt                      # Machine-readable skill index
+│   ├── base-logo-generator/
+│   │   ├── SKILL.md                  # Skill entry point
+│   │   ├── prompt.md                 # Detailed style & output rules
+│   │   ├── input-schema.json
+│   │   └── assets/                   # Example boards & keyframes
+│   ├── mascot-logo-generator/
+│   │   ├── SKILL.md · prompt.md · input-schema.json · assets/
+│   └── logo-colorway-generator/
+│       ├── SKILL.md · prompt.md · input-schema.json · assets/
+├── README.md
+├── README.zh-CN.md
+└── LICENSE
 ```
 
-## Supported Image Models
+## FAQ
 
-| Platform | Prompt variant | Notes |
-|----------|---------------|-------|
-| GPT Image | `### GPT Image` | Natural language; strong layout control |
-| Midjourney | `### Midjourney` | Includes `--ar 1:1 --v 6 --style raw` |
-| Flux | `### Flux` | Concise keyword-style prompt |
-| Ideogram | `### Ideogram` | Emphasizes legible wordmark text |
+**Does it only generate prompts?**
 
-Set `"target_platform": "midjourney"` in input to focus on one platform; default is `"all"`.
+No. For example, when using Codex, the skill can generate suitable images directly.
 
-## Install as Cursor Skill
+**Why a brand-system board instead of one centered logo?**
 
-```bash
-# Project-level (shared with team)
-cp -r logo-generator-skill .cursor/skills/logo-generator
+The board validates the mark across real identity surfaces: favicon, seal, lockup, monochrome, mockup, and meaning diagram. One logo on white doesn't tell you if it survives at 16×16 or in one-color print.
 
-# Personal (all projects)
-cp -r logo-generator-skill ~/.cursor/skills/logo-generator
-```
+**Can mascot logos only use animals?**
 
-The skill entry file is already named `SKILL.md`.
-
-## Iteration
-
-Add `revision_notes` to refine a concept without restarting:
-
-```json
-{
-  "brand_name": "Nebula",
-  "brief": "...",
-  "preferred_style": "tech",
-  "revision_notes": "Simpler icon, no gradients, bolder wordmark"
-}
-```
+No. Whether the source is an animal, plant, celestial body, food, or anything else, the skill extracts its signature feature and generates a more suitable logo.
 
 ## License
 
-MIT
+[MIT](LICENSE) · Copyright (c) 2026 SanbaoAI

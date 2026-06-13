@@ -1,224 +1,294 @@
-# Brand System Board Generator
+# Logo Generator Skill
 
-[English](README.md)
+*面向 AI Agent 的品牌设计系统*
 
-不只是一张 Logo —— 而是一块完整的**品牌规范展示板**。将一段品牌 brief 转化为精致的编辑级品牌系统规范页，包含主标、favicon、seal、wordmark lockup、应用、mockup、symbol meaning 和底部价值观等编号模块。
+**Agent Skills**，把品牌 brief 变成完整视觉识别系统 —— Logo 方向、品牌系统展示板、吉祥物标志、场景化配色。配合 **Codex** 通过 `imagegen` 直接生成展示板图片，或使用提示词在 GPT Image、Midjourney、Flux、Ideogram 中生成。
 
-## 展示效果
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![支持的工具](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#安装) [![技能数](https://img.shields.io/badge/Skills-3-green.svg)](#技能) [![图像生成](https://img.shields.io/badge/Image%20Generation-GPT%20Image%20%C2%B7%20Midjourney%20%C2%B7%20Flux%20%C2%B7%20Ideogram-orange.svg)](#codex-与图像生成)
 
-这些样例展示了本 skill 的核心产出：一张高品质品牌系统规范展示板，用来检验一个图形能否发展为真正的品牌识别系统。
+**中文** &nbsp;·&nbsp; **[English](README.md)**
 
-### Moss Lab
+<p align="center"><sub>基础 Logo &mdash; 高级克制的企业与产品标志</sub></p>
+<p align="center">
+  <img src="skills/base-logo-generator/assets/sanbaotech-brand-system-board.png" alt="SanBaoTech brand system board" width="32%" />
+  <img src="skills/base-logo-generator/assets/moss-lab-brand-system-board.png" alt="Moss Lab brand system board" width="32%" />
+  <img src="skills/base-logo-generator/assets/low-energy-brand-system-board.png" alt="Low Energy brand system board" width="32%" />
+</p>
 
-![Moss Lab brand system board](assets/moss-lab-brand-system-board.png)
+<p align="center"><sub>吉祥物 Logo &mdash; 从动物、角色和天体中提取标志性特征</sub></p>
+<p align="center">
+  <img src="skills/mascot-logo-generator/assets/aster-koi-brand-system-board.png" alt="Aster Koi mascot brand system board" width="32%" />
+  <img src="skills/mascot-logo-generator/assets/strix-forge-brand-system-board.png" alt="Strix Forge mascot brand system board" width="32%" />
+  <img src="skills/mascot-logo-generator/assets/manta-vale-brand-system-board.png" alt="Manta Vale mascot brand system board" width="32%" />
+</p>
 
-Moss Lab 被处理为一个安静的科研/创意实验室品牌。方向将苔藓的微观生态感与实验室的精确秩序结合起来：紧凑的培养皿或显微镜载片符号、深森林绿、鲜苔绿色、暖白底，以及清爽现代的无衬线字标。
+<p align="center"><sub>配色 &mdash; 场景化改色与标志性品牌色彩</sub></p>
+<p align="center">
+  <img src="skills/logo-colorway-generator/assets/sanbaotech-colorway-board.png" alt="SanBaoTech colorway board" width="32%" />
+  <img src="skills/logo-colorway-generator/assets/aster-koi-colorway-board.png" alt="Aster Koi colorway board" width="32%" />
+  <img src="skills/logo-colorway-generator/assets/manta-vale-colorway-board.png" alt="Manta Vale colorway board" width="32%" />
+</p>
 
-提示词摘要：生成一张黑白或象牙白品牌系统规范页，文字必须准确读取为 "Moss Lab"；版式包含主标、favicon、seal、lockup、应用、mockup、symbol meaning 和底部价值观。整体需要像编辑型品牌手册，高级、克制、可单色使用，并避开泛泛的 AI 符号。
+[安装](#安装) · [技能](#技能) · [怎么选？](#怎么选) · [Codex 与图像生成](#codex-与图像生成) · [工作流](#工作流) · [基础](#base-logo-generator) · [吉祥物](#mascot-logo-generator) · [配色](#logo-colorway-generator) · [Schema](#输入-schema) · [FAQ](#常见问题)
 
-### LOW ENERGY
+---
 
-![LOW ENERGY brand system board](assets/low-energy-brand-system-board.png)
+## 为什么需要它
 
-LOW ENERGY 被处理为一个低消耗、松弛、日常穿搭品牌。方向将柔软布料褶皱与隐约的低电量负形结合，用炭黑、灰绿色、低饱和天蓝和暖白色建立安静但有辨识度的服装标签气质。
+很多 Logo 提示词停留在"做一个极简 Logo"。这个仓库是一套**完整的品牌设计系统** —— 三个模块化技能，既可以独立使用，也可以串联为流水线：
 
-提示词摘要：生成一张黑白或象牙白品牌系统规范页，文字必须准确读取为 "LOW ENERGY"；版式包含主标、favicon、seal、lockup、服装标签应用、mockup、symbol meaning 和底部价值观。整体需要松弛、高级、适合服装品牌，并保持强记忆点。
+1. **`base-logo-generator`** —— 以高级克制为基础，生成企业和产品 Logo
+2. **`mascot-logo-generator`** —— 从动物、角色或天体中提取标志性特征，生成吉祥物 Logo
+3. **`logo-colorway-generator`** —— 为已有 Logo 增加场景化配色方案，让标志第一眼就抓住用户眼球
 
-### SanBaoTech
+每个技能输出的是**品牌系统展示板** —— 带编号的方形规范网格，包含主标、favicon、seal、字标 lockup、黑白/象牙白应用、mockup、压印应用和 symbol meaning。不仅仅是白底居中单 Logo。
 
-![SanBaoTech brand system board](assets/sanbaotech-brand-system-board.png)
+每个技能只做一件事。只装你需要的，或串联使用实现 brief → Logo → 配色的完整流水线。
 
-SanBaoTech 被处理为一家专注 AI、AI 社区和 AI 应用的高级科技公司。新版方向使用英文品牌字标，整体参考这张规范页的设计原则：细边框网格、编号模块、黑白/象牙白配色、少量红色强调、强轮廓符号和编辑型排版。
+## 安装
 
-提示词摘要：生成一张品牌系统规范页，文字必须准确读取为 "SanBaoTech"；版式包含主标、favicon、seal、wordmark lockup、黑白应用、mockup、symbol meaning 和底部价值观。整体以近黑和象牙白为主，需要高级、抽象、可单色使用，并避开机器人头、脑子、电路板等泛 AI 套路。
+[`npx skills add`](https://github.com/vercel-labs/agent-skills) CLI 会扫描 `skills/` 目录，三个技能安装方式相同。
 
-## 概述
+安装全部技能：
 
-本技能远不止简单的 Logo 图片生成。它产出的是一块**品牌规范展示板** —— 包含完整创意策略、符号构思、视觉系统说明，以及精致的品牌系统规范页版式。它支持公司 Logo、品牌 Logo、文创 Logo、产品 Logo、广告宣传 Logo、活动 Logo、App Logo、子品牌 Logo 等场景。输出针对 **GPT Image**、**Midjourney**、**Flux** 和 **Ideogram** 进行了优化。
+```bash
+npx skills add https://github.com/SanbaoAI/logo-generator-skill
+```
 
-默认输出不是一张白底居中的 Logo 图，而是一块**品牌系统规范展示板**：方形象牙白画布、细边框网格、编号模块包含 `MAIN LOGO`、`FAVICON`、`SEAL VERSION`、`WORDMARK LOCKUP`、应用、mockup、symbol meaning 和底部价值观。这种版式专为检验 Logo 能否成为真正的品牌识别系统而设计 —— 测试可缩放性、单色适配、组合灵活性和场景应用 —— 而不仅仅看单张图形是否好看。
+按**安装名**单独安装：
 
-## 输入
+```bash
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "base-logo-generator"
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "mascot-logo-generator"
+npx skills add https://github.com/SanbaoAI/logo-generator-skill --skill "logo-colorway-generator"
+```
 
-| 字段 | 必填 | 说明 |
-|------|------|------|
-| `brand_name` | 是 | 公司、产品、活动、IP 或品牌名称 |
-| `brief` | 是 | 被设计对象、目标受众、价值主张、品牌性格与使用场景 |
-| `logo_type` | 否 | `company` · `brand` · `product` · `cultural-creative` · `campaign` · `advertising` · `event` · `app` · `sub-brand` · `personal-brand` · `other` |
-| `preferred_style` | 否 | 风格偏好，如 `minimal`、`modern`、`heritage modern`、`playful`、`corporate`、`tech`、`luxury`、`bold` |
-| `reference_style` | 否 | 用文字描述参考图的版式、留白、字体气质、色彩克制程度和视觉氛围 |
-| `output_layout` | 否 | `brand-system-board` · `identity-board` · `standalone-logo` · `square-avatar` · `transparent-asset`；直接出图默认使用 `brand-system-board` |
-| `target_platform` | 否 | `gpt-image` · `midjourney` · `flux` · `ideogram` · `all` |
-| `render_image` | 否 | 设为 `true` 时，在图像生成能力可用的情况下，先生成最终提示词，再直接生成 Logo 图片 |
+也可以复制 `SKILL.md` 到项目中，或粘贴到 Codex / Claude Code / Cursor 对话中：
 
-## 输出
+```bash
+cp -r skills/base-logo-generator ~/.codex/skills/
+```
 
-| 板块 | 说明 |
-|------|------|
-| **Logo Direction** | 品牌定位、视觉氛围、配色、字体、构图方向 |
-| **Symbol Concept** | 核心隐喻、图形形态、与业务的关联说明 |
-| **Visual System Notes** | 组合形式、单色适配、小尺寸表现和使用场景说明 |
-| **Brand System Board Layout** | 直接出图时的品牌系统规范页：主标、favicon、seal、lockup、应用、mockup、symbol meaning 和底部价值观 |
-| **Final Image Prompt** | 可直接粘贴的提示词：通用版、GPT Image、Midjourney、Flux、Ideogram |
-| **Generated Logo** | 当 `render_image: true` 或用户要求生成/渲染 Logo 时，返回实际图片结果 |
+## 技能
 
-## 快速开始
+每个技能只做一件事，不需要全部安装。`安装名` 列是你传给 `--skill` 的确切值。
+
+| 技能（目录） | 安装名 | 说明 |
+| --- | --- | --- |
+| **base-logo-generator** | `base-logo-generator` | 高级克制的 Logo 设计，用于公司、产品、App、活动、文创标志。符号逻辑来自品牌策略、隐喻、几何、负形和字体，不从吉祥物出发。输出黑白/象牙白品牌系统展示板。 |
+| **mascot-logo-generator** | `mascot-logo-generator` | 吉祥物衍生 Logo。从动物、角色、物体或天体出发，提取一个标志性特征（爪印、鹿角、月牙、象牙等），压缩为扁平、可缩放、可注册的剪影标志。展示板排版与基础技能一致。 |
+| **logo-colorway-generator** | `logo-colorway-generator` | 后处理：为已有 Logo 或展示板增加场景化配色。保留原始符号、字标和轮廓。生成 2-4 条配色路线（含 hex 值）、标志性主色和真实应用场景。 |
+
+### 怎么选？
+
+- 先用 **base-logo-generator** 做企业和产品 Logo —— 干净、高级、克制。
+- 当标志需要来自动物、角色或天体特征时，用 **mascot-logo-generator**。
+- 当 Logo 已经存在、需要记忆点配色、场景应用或标志性主色时，用 **logo-colorway-generator**。
+- 串联 **base → colorway** 或 **mascot → colorway** 实现完整品牌识别流水线。
+
+## Codex 与图像生成
+
+三个技能都原生支持 **Codex**。当图像生成工具可用时（如 Codex `imagegen`、ChatGPT Images），技能会先准备完整的创意方向，然后调用工具直接生成展示板。
+
+**没有图像工具？** 技能会返回最终提示词，可直接粘贴到 GPT Image、Midjourney、Flux 或 Ideogram。
+
+**图像优先提示：** 在 prompt 中声明流水线 —— 例如"生成 Logo 展示板，然后加配色" —— agent 会按顺序执行技能。
+
+## 工作流
+
+```
+   第一步 — 生成 Logo（二选一）              第二步 — 后处理（可选）
+ ┌─────────────────────────────────┐        ┌───────────────────────────────┐
+ │  base-logo-generator             │        │                               │
+ │    或                            │  ───▶  │  logo-colorway-generator      │
+ │  mascot-logo-generator           │        │                               │
+ └─────────────────────────────────┘        └───────────────────────────────┘
+   Brief → Logo + 品牌系统展示板               已有 Logo → 配色 + 场景应用
+```
+
+每个技能都可独立使用。在任一 Logo 技能之后使用配色技能，即可增加标志性色彩系统。
+
+---
+
+## `base-logo-generator`
+
+高级克制的 Logo 设计 —— 任何品牌识别的基础。符号来自品牌策略、隐喻、几何、负形或产品意义，不从吉祥物出发。结果应该看起来精致、经久耐用、具有独特辨识度。
+
+**输出：**
+
+| 板块 | 内容 |
+| --- | --- |
+| Logo Direction | 品牌定位、视觉气质、配色、字体方向、构图 |
+| Symbol Concept | 核心隐喻、图形形态、负形逻辑、2-4 条备选路线 |
+| Visual System Notes | 组合形式、单色适配、小尺寸表现、使用场景 |
+| Brand System Board | 编号模块：主标、favicon、seal、lockup、应用、mockup、symbol meaning |
+| Final Image Prompts | Universal、GPT Image、Midjourney、Flux、Ideogram 提示词 |
+| Generated Logo | 图像工具可用时直接生成 |
+
+<details>
+<summary>示例输入</summary>
 
 ```json
 {
   "brand_name": "SanBaoTech",
   "logo_type": "company",
-  "brief": "一家专注 AI、AI 社区和 AI 应用的科技公司，帮助用户理解、交流并落地 AI 工具与产品。品牌字标使用英文 SanBaoTech。",
+  "brief": "一家专注 AI、AI 社区和 AI 应用的科技公司，帮助用户理解、交流并落地 AI 工具与产品。",
   "preferred_style": "minimal, premium, abstract",
-  "reference_style": "黑白或象牙白极简品牌系统规范页，带细边框网格、编号模块、主标、favicon、seal、wordmark lockup、黑白应用、mockup、symbol meaning 和底部价值观条。",
+  "output_layout": "brand-system-board",
+  "target_platform": "all"
+}
+```
+</details>
+
+> 使用 base-logo-generator skill 生成 Logo 创意方案。
+
+---
+
+## `mascot-logo-generator`
+
+吉祥物衍生标志，使用与基础技能一致的展示板排版。不同的符号逻辑：从动物、角色、物体或天体中提取一个最有识别度的特征，压缩为扁平、可缩放、可注册的剪影标志。
+
+**适合的特征来源：** 爪印、头部侧影、鹿角、耳朵、象牙、眼形、面具、翅膀、尾巴曲线、月牙、头盔、水果切口。
+
+不能复制知名吉祥物受保护的轮廓或商标比例。知名品牌仅作为方法参考。
+
+<details>
+<summary>示例输入</summary>
+
+```json
+{
+  "brand_name": "Moonshade",
+  "logo_type": "brand",
+  "brief": "一个安静、神秘、带幻想气质的科技品牌，需要用于 App 图标、周边和社区身份的高级符号。",
+  "preferred_style": "minimal, premium, mysterious",
+  "mascot_source": "half moon",
+  "mascot_feature_focus": "crescent edge and shadow cutout",
   "output_layout": "brand-system-board"
 }
 ```
+</details>
 
-粘贴上述 JSON（或用自然语言描述公司），然后说：
+> 使用 mascot-logo-generator skill 生成一个吉祥物衍生 Logo。
 
-> 使用 logo-generator skill 生成 Logo 创意方案。
+---
 
-Agent 将返回完整输出板块。将对应平台的提示词复制到图像生成工具即可。
+## `logo-colorway-generator`
 
-如果想直接出图，可以说：
+场景化配色后处理技能。在 Logo 概念、图片或完整展示板已存在后使用。保留原始符号、字标、轮廓和单色可用性 —— 只增加记忆点配色和真实应用规则。
 
-> 使用 logo-generator skill 直接生成一张 Moss Lab Logo 图片。
+创造一个**标志性品牌色彩**，第一眼就抓住注意力，并在 App 图标、包装、标识、社交媒体和周边中验证可用性。
 
-或在输入中设置：
+**输出：**
 
-```json
-{
-  "brand_name": "Moss Lab",
-  "brief": "一个面向独立开发者和设计师的 AI 工具品牌……",
-  "render_image": true
-}
-```
+| 板块 | 内容 |
+| --- | --- |
+| Existing Logo Read | 识别已有标志，说明必须保留的内容 |
+| Palette Routes | 2-4 条带冲击等级和 hex 值的配色路线 |
+| Chosen Color System | 标志性主色、主色、辅助色、强调色、中性色、深色、单色回退 |
+| First-Glance Impact | 为什么在 App、货架、周边、社交中更容易被记住 |
+| Scenario Layout | 背景、版式、应用模块如何让配色更有普适场景 |
+| Color Application Rules | 每个颜色在 Logo 模块和 mockup 中如何应用 |
+| Colorway Board Layout | 如何渲染场景化改色展示板 |
+| Final Recolor Prompts | 多平台改色提示词 |
 
-当请求直接生成图片时，Agent 会先确定创意方向，再使用最合适的 GPT Image 或 Universal 提示词生成一张品牌系统规范展示板：方形画布、细边框网格、编号模块、主标、favicon、seal、wordmark lockup、黑白应用、mockup、symbol meaning 和底部价值观条。如果需要更简单的展示板、单独 Logo、方形头像或透明底，可将 `output_layout` 改为对应格式。
-
-## Brand System Board 风格
-
-直接出图默认采用完整品牌系统规范页：
-
-- 方形象牙白画布，带细外框和内部网格线。
-- 编号模块包括 `MAIN LOGO`、`FAVICON`、`SEAL VERSION`、`WORDMARK LOCKUP`、应用、mockup 和 `SYMBOL MEANING`。
-- 以黑色和象牙白为主，只在必要处使用极少量深红强调线或圆点。
-- 底部增加 `OUR MISSION`、`OUR VIEW`、`OUR STANDARD`、`OUR PROMISE` 等价值观条。
-- favicon、seal、lockup、应用和 mockup 都复用同一个核心 symbol，形成完整系统。
-
-这种版式更适合判断 Logo 能不能发展成真正的品牌系统，而不只是看单张居中图是否好看。
-
-## 完整示例：Moss Lab
-
-### 示例输入
+<details>
+<summary>示例输入</summary>
 
 ```json
 {
-  "brand_name": "Moss Lab",
-  "logo_type": "brand",
-  "brief": "一个面向独立开发者和设计师的 AI 工具品牌。Logo 需要聪明、安静、有实验室感，但不要机器人头、脑子、电路板或泛泛的 AI 符号。主要用于网站、App 图标和开源项目头像。",
-  "preferred_style": "minimal, quiet, experimental",
-  "target_platform": "all",
-  "render_image": true
+  "brand_name": "Aster Koi",
+  "source_logo_description": "已有吉祥物衍生品牌系统展示板，符号为锦鲤尾纹和水波。",
+  "brand_context": "精品茶饮和植物生活方式品牌。",
+  "palette_direction": "暖象牙白底，柿子色作为标志性主色，池水绿辅助，墨黑保证识别",
+  "color_impact": "memorable",
+  "layout_mode": "adaptive-scenario-board",
+  "colorway_count": 3,
+  "output_layout": "colorway-board"
 }
 ```
+</details>
 
-### 生成结果
+> 使用 logo-colorway-generator skill 给这个 Logo 增加配色。
 
-#### Logo Direction
+---
 
-将 Moss Lab 定位为一个安静的 AI 工具实验室：精确、实用、克制但有创造力。视觉气质应把"苔藓"的柔和生长感与"实验室标识"的秩序感结合起来，形成一个既有自然触感、又足够工程化的紧凑符号。
+## 输入 Schema
 
-配色建议使用深苔绿色、石墨黑、暖白色，并用少量浅薄荷色作为强调。字体建议选择干净的几何无衬线，但带一点人文温度，例如柔和的 grotesk 或圆角技术感字体。构图上需要同时适配网站横向字标、文档中的上下组合，以及 GitHub / App 场景中的方形图标。
+**基础 & 吉祥物**（共享核心字段）：
 
-这个方向适合 AI 工具品牌，因为它避开了高噪音的未来主义套路，转而传达给开发者和设计师更需要的可靠、好用、审慎和有手艺感。
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `brand_name` | **是** | 公司、产品、活动、IP 或品牌名称 |
+| `brief` | **是** | 被设计对象、受众、价值主张、品牌性格 |
+| `logo_type` | 否 | `company` `brand` `product` `cultural-creative` `campaign` `advertising` `event` `app` `sub-brand` `personal-brand` `other` |
+| `preferred_style` | 否 | minimal、modern、playful、corporate、tech、luxury、bold、organic 等 |
+| `output_layout` | 否 | `brand-system-board`（默认）、`identity-board`、`standalone-logo`、`square-avatar`、`transparent-asset` |
+| `target_platform` | 否 | `gpt-image` `midjourney` `flux` `ideogram` `all`（默认） |
+| `render_image` | 否 | 图像工具可用时直接生成图片 |
+| `reference_style` | 否 | 视觉参考的文字描述（仅参考方法，不复制标志） |
+| `revision_notes` | 否 | 迭代反馈，用于优化上一版方案 |
+| `output_language` | 否 | `zh-CN`（默认）或 `en` |
 
-#### Symbol Concept
+**吉祥物专属字段：**
 
-核心符号是一个圆角"实验样本砖"：内部用负形构成一个简化的 `M`。这个 `M` 由两段像苔藓生长轨迹的柔和弧形和中间一根精确竖 stem 组成，同时也像被安静观察的一小块实验样本。图形应足够简单，可作为 favicon 使用，同时避免落入常见 AI 视觉俗套。
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `mascot_source` | 否 | 吉祥物来源：鹿、熊爪、猛犸象头、月牙等 |
+| `mascot_feature_focus` | 否 | 要提取的特征：鹿角、爪垫、象牙、耳朵、月牙边缘等 |
 
-可选符号路线：
+**配色** 核心字段：
 
-- 极简培养皿圆形，用生长中的负形构成 `M`。
-- 将实验烧瓶轮廓压缩成近似叶片的 `M`，但不做成普通植物装饰。
-- 把方形终端光标与柔软苔藓斑块结合，表达代码与有机实验。
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `brand_name` | **是** | 已有 Logo 中的准确品牌名 |
+| `source_logo_description` | **是** | 描述已有 Logo/展示板及必须保留的内容 |
+| `brand_context` | 否 | 品类、受众、品牌性格、使用场景 |
+| `palette_direction` | 否 | 想要的色彩气质、指定颜色或需避开的颜色 |
+| `color_impact` | 否 | `restrained` `memorable`（默认）`high-impact` `experimental` |
+| `layout_mode` | 否 | `adaptive-scenario-board`（默认）、`preserve-original-board`、`campaign-colorway-board`、`application-mockup-board` |
+| `audience_scope` | 否 | `broad-mainstream`（默认）、`premium-niche`、`youthful-pop`、`enterprise`、`cultural-collectible` |
+| `background_direction` | 否 | 展示板背景或场景方向 |
+| `colorway_count` | 否 | 配色路线数量，1-4（默认 3） |
 
-#### Visual System Notes
+完整 Schema：[`基础`](skills/base-logo-generator/input-schema.json) · [`吉祥物`](skills/mascot-logo-generator/input-schema.json) · [`配色`](skills/logo-colorway-generator/input-schema.json)
 
-建议准备三种组合：图标加横向字标、图标在上字标在下、独立 App / 头像图标。单色版本需要保证负形 `M` 在黑色、白色或苔绿色中都清晰。小尺寸使用时，移除次要细节，只保留圆角样本砖、`M` 负形和一个干净的强调形。
+---
 
-开源项目头像可使用独立符号，背景用暖白色或石墨黑。网站页眉可使用图标加安静字标，并保持充足留白。避免渐变、发光 AI 效果、分子图、过于具象的实验器材和装饰性 swoosh。
+## 项目结构
 
-#### Final Image Prompt
-
-##### Universal
-
-Create a premium minimalist logo for "Moss Lab", an AI tools brand for independent developers and designers. Design a compact symbol that combines the feeling of soft moss growth with a precise laboratory sample tile. Use a rounded square or circular lab-tile icon with a negative-space `M` formed from two organic arcs and a central stem. Pair it with a clean geometric sans wordmark reading "Moss Lab". Mood: intelligent, calm, experimental, trustworthy. Palette: deep moss green, graphite, warm off-white, pale mint accent. Vector-like, scalable, one-color friendly, favicon-ready. No robot heads, brains, circuit boards, globes, wifi icons, generic AI symbols, light bulbs, shields, or swooshes.
-
-##### GPT Image
-
-Design a clean vector-style logo on a plain warm off-white background for the brand "Moss Lab". The logo should include a compact icon and readable wordmark. The icon is a rounded lab sample tile in deep moss green, with a simple negative-space `M` shaped from two soft moss-like arcs and one precise central stem. The wordmark says exactly "Moss Lab" in a quiet geometric sans typeface with subtle warmth. The overall feeling is intelligent, calm, experimental, and useful for AI tools made for independent developers and designers. Keep the logo flat, premium, balanced, and usable at small app-icon size. Avoid robot heads, brains, circuit boards, generic AI imagery, glowing effects, complex lab equipment, and decorative swooshes.
-
-##### Midjourney
-
-premium minimalist vector logo for "Moss Lab", AI tools brand for indie developers and designers, rounded lab sample tile icon, negative space M made from soft moss arcs and precise central stem, calm intelligent experimental mood, deep moss green graphite warm off-white pale mint accent, clean geometric sans wordmark, flat scalable favicon friendly, no robot head no brain no circuit board no generic AI symbol no glow --ar 1:1 --v 6 --style raw
-
-##### Flux
-
-Moss Lab logo, premium minimalist vector mark, AI tools brand, independent developers and designers, rounded lab sample tile, negative-space M, soft moss arcs, precise central stem, calm intelligent experimental, deep moss green, graphite, warm off-white, pale mint accent, clean geometric sans wordmark, flat design, scalable, one-color friendly, favicon-ready, no robot, no brain, no circuit board, no generic AI icon, no glow
-
-##### Ideogram
-
-Create a clean vector-like logo with exact readable text: "Moss Lab". Use a compact rounded lab-tile icon beside the wordmark. The icon should show a negative-space capital `M` formed by two soft moss-like arcs and a precise central stem. Style: premium minimalist, calm, intelligent, experimental, made for an AI tools brand serving independent developers and designers. Colors: deep moss green, graphite, warm off-white, small pale mint accent. Make the wordmark crisp and correctly spelled. Avoid robot heads, brains, circuit boards, generic AI symbols, glow effects, and clutter.
-
-## 目录结构
-
-```
+```text
 logo-generator-skill/
-├── SKILL.md            # 技能定义与工作流
-├── prompt.md           # 输出模板与各平台说明
-├── input-schema.json   # 输入 JSON Schema
-├── README.md           # 英文文档
-└── README.zh-CN.md     # 中文文档（本文件）
+├── skill.sh                          # 技能路径解析
+├── skills/
+│   ├── llms.txt                      # 机器可读技能索引
+│   ├── base-logo-generator/
+│   │   ├── SKILL.md                  # 技能入口
+│   │   ├── prompt.md                 # 详细风格与输出规则
+│   │   ├── input-schema.json
+│   │   └── assets/                   # 示例展示板和 keyframes
+│   ├── mascot-logo-generator/
+│   │   ├── SKILL.md · prompt.md · input-schema.json · assets/
+│   └── logo-colorway-generator/
+│       ├── SKILL.md · prompt.md · input-schema.json · assets/
+├── README.md
+├── README.zh-CN.md
+└── LICENSE
 ```
 
-## 支持的图像模型
+## 常见问题
 
-| 平台 | 提示词板块 | 说明 |
-|------|-----------|------|
-| GPT Image | `### GPT Image` | 自然语言描述，布局控制较好 |
-| Midjourney | `### Midjourney` | 含 `--ar 1:1 --v 6 --style raw` 参数 |
-| Flux | `### Flux` | 简洁关键词风格 |
-| Ideogram | `### Ideogram` | 强调文字标识的可读性 |
+**只能生成提示词吗？**
 
-输入中设置 `"target_platform": "midjourney"` 可聚焦单一平台；默认为 `"all"` 输出全部变体。
+不是。例如使用 Codex 时，技能可以直接生成合适的图像。
 
-## 安装为 Cursor Skill
+**为什么默认是品牌系统展示板，而不是白底居中 Logo？**
 
-```bash
-# 项目级（团队共享）
-cp -r logo-generator-skill .cursor/skills/logo-generator
+展示板可以同时检验主标、favicon、seal、lockup、单色应用、mockup 和 symbol meaning。白底单 Logo 无法告诉你它在 16×16 或单色印刷时是否还能用。
 
-# 个人级（所有项目可用）
-cp -r logo-generator-skill ~/.cursor/skills/logo-generator
-```
+**吉祥物 Logo 只能选动物吗？**
 
-技能入口文件已命名为 `SKILL.md`。
-
-## 迭代优化
-
-通过 `revision_notes` 在原有方案基础上微调，无需从头开始：
-
-```json
-{
-  "brand_name": "SanBaoTech",
-  "brief": "...",
-  "preferred_style": "modern, intelligent, community-minded",
-  "revision_notes": "图标更简洁，系统页更像高级品牌手册，字标使用英文 SanBaoTech"
-}
-```
+不是。不论是动物、植物、天体还是食物等，skill 都是提取其标志性特征之后，生成更合适的 Logo。
 
 ## 许可证
 
-MIT
+[MIT](LICENSE) · Copyright (c) 2026 SanbaoAI
