@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/mascot-logo-generator/input.json",
+  "title": "MascotLogoGeneratorInput",
+  "description": "Input schema for the Mascot Logo Generator skill",
+  "type": "object",
+  "required": ["brand_name", "brief"],
+  "additionalProperties": false,
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Company, product, campaign, event, IP, or brand name to feature in the logo"
+    },
+    "logo_type": {
+      "type": "string",
+      "enum": ["company", "brand", "product", "cultural-creative", "campaign", "advertising", "event", "app", "sub-brand", "personal-brand", "other"],
+      "description": "Type of logo to generate; omit if it should be inferred from the brief"
+    },
+    "brief": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "What is being branded, who it serves, its value proposition, personality, usage context, and any mascot-related direction"
+    },
+    "audience": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Optional target audience or buyer/user group"
+    },
+    "preferred_style": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Optional visual style preference, such as minimal, modern, premium, playful, cute, luxury, bold, mysterious, or organic"
+    },
+    "mascot_source": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Optional mascot or symbol source, such as deer, bear paw, mammoth head, alien head, crescent moon, helmet, fruit, or another recognizable entity"
+    },
+    "mascot_feature_focus": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "Optional signature feature to extract, such as antlers, paw pads, tusks, ears, eye shape, head profile, crescent edge, claw, tail curve, or mask"
+    },
+    "reference_style": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Optional written description of a visual reference, including layout, typography, color restraint, spacing, and mood. Use references as guidance only, not for copying a mark."
+    },
+    "output_layout": {
+      "type": "string",
+      "enum": ["brand-system-board", "identity-board", "standalone-logo", "square-avatar", "transparent-asset"],
+      "default": "brand-system-board",
+      "description": "Preferred direct-render layout. brand-system-board uses a square numbered guideline grid with main logo, favicon, seal, lockup, applications, mockups, symbol meaning, and footer values."
+    },
+    "target_platform": {
+      "type": "string",
+      "enum": ["gpt-image", "midjourney", "flux", "ideogram", "all"],
+      "default": "all",
+      "description": "Which image model prompts to emphasize; default outputs all variants"
+    },
+    "render_image": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, generate an actual logo image after creating the final prompt if an image-generation tool is available"
+    },
+    "revision_notes": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Iteration feedback when refining a previous mascot-derived concept"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN",
+      "description": "Preferred language for the response"
+    }
+  },
+  "examples": [
+    {
+      "brand_name": "Moonshade",
+      "logo_type": "brand",
+      "brief": "A quiet fantasy technology brand that needs a mysterious but premium symbol for app icon, merchandise, and community identity.",
+      "preferred_style": "minimal, premium, mysterious",
+      "mascot_source": "half moon",
+      "mascot_feature_focus": "crescent edge and shadow cutout"
+    },
+    {
+      "brand_name": "鹿饮",
+      "logo_type": "brand",
+      "brief": "精品咖啡与轻食品牌，需要一个高级、克制、适合杯套和门店招牌的动物衍生标志。",
+      "preferred_style": "minimal, premium, organic",
+      "mascot_source": "deer",
+      "mascot_feature_focus": "antlers and head silhouette"
+    }
+  ]
+}
