@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/logo-colorway-generator/input.json",
+  "title": "LogoColorwayGeneratorInput",
+  "description": "Input schema for the Logo Colorway Generator skill",
+  "type": "object",
+  "required": ["brand_name", "source_logo_description"],
+  "additionalProperties": false,
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Exact brand name or wordmark shown in the existing logo"
+    },
+    "source_logo_description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "Description of the existing logo, generated board, symbol, mascot feature, wordmark, layout, and what must be preserved"
+    },
+    "brand_context": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional brand context, audience, category, personality, and usage surfaces"
+    },
+    "palette_direction": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Optional color direction, desired mood, specific colors, or colors to avoid"
+    },
+    "color_impact": {
+      "type": "string",
+      "enum": ["restrained", "memorable", "high-impact", "experimental"],
+      "default": "memorable",
+      "description": "How strongly the colorway should affect first-glance recognition. memorable is the default; high-impact uses bolder fields and stronger contrast while preserving the logo."
+    },
+    "layout_mode": {
+      "type": "string",
+      "enum": ["adaptive-scenario-board", "preserve-original-board", "campaign-colorway-board", "application-mockup-board"],
+      "default": "adaptive-scenario-board",
+      "description": "How much the surrounding board layout can change. adaptive-scenario-board changes background/layout for practical applications; preserve-original-board keeps the original grid."
+    },
+    "audience_scope": {
+      "type": "string",
+      "enum": ["broad-mainstream", "premium-niche", "youthful-pop", "enterprise", "cultural-collectible"],
+      "default": "broad-mainstream",
+      "description": "Audience breadth for color choices. broad-mainstream favors widely acceptable, memorable palettes."
+    },
+    "background_direction": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "Optional direction for the board background or scene environment, such as bold coral field, deep blue interface, warm retail wall, outdoor product scene, or split color blocks."
+    },
+    "colorway_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 3,
+      "description": "Number of palette routes to propose before choosing the strongest one"
+    },
+    "output_layout": {
+      "type": "string",
+      "enum": ["colorway-board", "brand-system-board", "identity-board", "standalone-logo", "square-avatar"],
+      "default": "colorway-board",
+      "description": "Preferred direct-render layout. colorway-board preserves the existing board and adds palette swatches and color applications."
+    },
+    "target_platform": {
+      "type": "string",
+      "enum": ["gpt-image", "midjourney", "flux", "ideogram", "all"],
+      "default": "all",
+      "description": "Which image model prompts to emphasize; default outputs all variants"
+    },
+    "render_image": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, generate an actual recolored logo or colorway board after creating the final prompt if an image-generation tool is available"
+    },
+    "revision_notes": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "Iteration feedback when refining a previous colorway"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN",
+      "description": "Preferred language for the response"
+    }
+  },
+  "examples": [
+    {
+      "brand_name": "Aster Koi",
+      "source_logo_description": "Existing mascot-derived brand-system board with koi tail split and water ripple symbol, exact wordmark Aster Koi, black/ivory editorial grid, favicon, seal, lockup, applications, mockup, embossed print, and symbol meaning modules.",
+      "brand_context": "Premium tea and botanical lifestyle brand for packaging, cup sleeves, small seals, and storefront signage.",
+      "palette_direction": "warm ivory base with a memorable persimmon signature color, pond green support, and ink black",
+      "color_impact": "memorable",
+      "layout_mode": "adaptive-scenario-board",
+      "audience_scope": "broad-mainstream",
+      "background_direction": "warm persimmon and ivory scenario board with packaging and cup sleeve applications",
+      "colorway_count": 3
+    }
+  ]
+}
