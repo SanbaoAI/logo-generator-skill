@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/brand-orchestrator/input.json",
+  "title": "BrandOrchestratorInput",
+  "description": "Input schema for the full AI Brand Architect orchestration workflow",
+  "type": "object",
+  "required": ["brand_name"],
+  "additionalProperties": false,
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "industry": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "product": {
+      "type": "string",
+      "maxLength": 800
+    },
+    "target_users": {
+      "type": "string",
+      "maxLength": 800
+    },
+    "founder_story": {
+      "type": "string",
+      "maxLength": 1200
+    },
+    "goals": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "enum": [
+          "brand-dna",
+          "logo-system",
+          "mascot-logo",
+          "colorway",
+          "corporate-website",
+          "copy-validation",
+          "typography-system",
+          "brand-guidelines",
+          "full-system"
+        ]
+      },
+      "default": ["full-system"]
+    },
+    "constraints": {
+      "type": "string",
+      "maxLength": 1200
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN"
+    }
+  },
+  "examples": [
+    {
+      "brand_name": "SanBaoTech",
+      "industry": "AI services",
+      "product": "Enterprise AI enablement, Forward Deployed Engineering, AIGC production, and Hermes Agent engineering.",
+      "target_users": "Enterprise teams and founders",
+      "deliverables": ["brand-dna", "corporate-website", "typography-system"]
+    }
+  ]
+}

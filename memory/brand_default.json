@@ -1,0 +1,22 @@
+{
+  "brand_id": "default",
+  "visual_dna": {
+    "geometry": "rounded",
+    "emotion": "tech",
+    "primary_color": "#2563EB",
+    "secondary_color": "#F97316",
+    "keywords": ["node", "flow", "minimal"]
+  },
+  "style_rules": {
+    "complexity": 0.4,
+    "symmetry": "radial",
+    "layout_preference": "centered"
+  },
+  "history": [
+    {
+      "asset_id": "logo_v1",
+      "type": "logo",
+      "summary": "initial generation"
+    }
+  ]
+}

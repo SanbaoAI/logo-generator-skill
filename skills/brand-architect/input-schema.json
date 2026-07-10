@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/brand-architect/input.json",
+  "title": "BrandArchitectInput",
+  "description": "Input schema for the AI Brand Architect skill",
+  "type": "object",
+  "required": ["brand_name"],
+  "additionalProperties": false,
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "Company, product, campaign, event, IP, or brand name"
+    },
+    "industry": {
+      "type": "string",
+      "maxLength": 160,
+      "description": "Industry or category, such as AI design tools, hospitality, finance, education, fashion, cultural creative products, or consumer apps"
+    },
+    "product": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "What the brand makes, sells, enables, or changes for users"
+    },
+    "target_users": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Primary audience, tribe, buyer, user, or community"
+    },
+    "founder_story": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Founder story, origin story, founding belief, or reason the brand exists"
+    },
+    "brief": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Additional brand context, market context, personality, constraints, usage surfaces, competitors, or desired direction"
+    },
+    "competitors": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80
+      },
+      "description": "Optional competitor or adjacent brand names used for distance checks"
+    },
+    "research_depth": {
+      "type": "string",
+      "enum": ["lean", "standard", "deep"],
+      "default": "standard",
+      "description": "How deeply to develop archaeology, symbol discovery, and scoring"
+    },
+    "output_mode": {
+      "type": "string",
+      "enum": ["brand-dna", "visual-identity", "brand-guidelines", "full-system"],
+      "default": "full-system",
+      "description": "Preferred scope of the response"
+    },
+    "visual_identity_scope": {
+      "type": "string",
+      "enum": ["strategy-only", "logo-only", "identity-board", "brand-system-board"],
+      "default": "brand-system-board",
+      "description": "How far to take the final visual expression"
+    },
+    "target_platform": {
+      "type": "string",
+      "enum": ["gpt-image", "midjourney", "flux", "ideogram", "all"],
+      "default": "all",
+      "description": "Which image model prompts to emphasize"
+    },
+    "render_image": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, generate an actual identity image after Brand DNA if an image-generation tool is available"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN",
+      "description": "Preferred language for the response"
+    }
+  },
+  "examples": [
+    {
+      "brand_name": "Leios",
+      "industry": "AI design tools",
+      "product": "A thinking-first AI design platform that helps creators turn ideas into visual identity systems.",
+      "target_users": "Independent creators, product founders, and small teams who need design judgment before visual execution.",
+      "founder_story": "The brand was created from the belief that design should return to thinking, not visual noise.",
+      "research_depth": "deep",
+      "output_mode": "full-system",
+      "visual_identity_scope": "brand-system-board"
+    }
+  ]
+}

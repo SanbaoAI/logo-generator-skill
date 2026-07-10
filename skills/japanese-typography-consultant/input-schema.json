@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JapaneseTypographyConsultantInput",
+  "type": "object",
+  "properties": {
+    "brand_name": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["zh-CN", "ja", "mixed"]
+    },
+    "surface": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "brand_tone": {
+      "type": "string"
+    },
+    "layout_density": {
+      "type": "string",
+      "enum": ["quiet", "balanced", "dense"]
+    },
+    "reference_mode": {
+      "type": "string",
+      "enum": ["principles-only", "editorial", "poster", "product-site", "dashboard"]
+    }
+  },
+  "additionalProperties": true
+}

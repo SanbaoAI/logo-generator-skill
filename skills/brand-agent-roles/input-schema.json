@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://xinteract.dev/schemas/brand-agent-roles/input.json",
+  "title": "BrandAgentRolesInput",
+  "description": "Input schema for defining specialist subagent roles and handoff rules",
+  "type": "object",
+  "required": ["project_type"],
+  "additionalProperties": false,
+  "properties": {
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "brand-dna",
+        "logo-system",
+        "corporate-website",
+        "full-brand-system"
+      ]
+    },
+    "brand_name": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "industry": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "deliverables": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      }
+    },
+    "team_mode": {
+      "type": "string",
+      "enum": ["single-agent-simulated", "multi-agent"],
+      "default": "single-agent-simulated"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": ["zh-CN", "en"],
+      "default": "zh-CN"
+    }
+  },
+  "examples": [
+    {
+      "project_type": "corporate-website",
+      "brand_name": "SanBaoTech",
+      "industry": "AI services",
+      "deliverables": ["copy validation", "typography", "website template"],
+      "team_mode": "single-agent-simulated"
+    }
+  ]
+}

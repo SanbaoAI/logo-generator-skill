@@ -1,13 +1,36 @@
-# Logo Generator Skill
+# AI Brand Architect Skill
 
-This repository contains three installable Agent Skills.
+This repository contains ten installable Agent Skills.
 
 | Install name | Path | Purpose |
 | --- | --- | --- |
+| `brand-orchestrator` | `skills/brand-orchestrator/SKILL.md` | Orchestrate the full AI Brand Architect operating system: intake, subagent delegation, phase gates, synthesis, QA, routing to specialist skills, and final delivery. |
+| `brand-agent-roles` | `skills/brand-agent-roles/SKILL.md` | Define specialized subagent roles, output contracts, handoff rules, and division of labor for brand archaeology, human insight, archetypes, civilization, symbols, audits, visual identity, prompts, and guidelines. |
+| `brand-architect` | `skills/brand-architect/SKILL.md` | Build complete Brand DNA before visual generation: historical context, human narrative, archetypes, myth, civilization, symbol discovery, distinctiveness scoring, restraint scoring, timelessness scoring, visual identity, and brand guidelines. |
 | `base-logo-generator` | `skills/base-logo-generator/SKILL.md` | Generate base logo creative directions, brand-system board layouts, and image-generation prompts. |
 | `mascot-logo-generator` | `skills/mascot-logo-generator/SKILL.md` | Generate mascot-derived logo marks by extracting signature features from animals, characters, objects, celestial forms, or mascot-like sources. |
 | `logo-colorway-generator` | `skills/logo-colorway-generator/SKILL.md` | Add restrained color systems and colorway prompts to existing logos or generated brand-system boards without changing the underlying symbol. |
+| `content-copy-validator` | `skills/content-copy-validator/SKILL.md` | Validate website and product copy for terminology, acronyms, factual claims, naming consistency, Chinese wording, mixed-language expression, CTA clarity, and copy QA before design or publication. |
+| `typography-system-designer` | `skills/typography-system-designer/SKILL.md` | Design typography systems for websites, AI/technology pages, dashboards, mixed Chinese-English layouts, type scales, line breaks, CTA hierarchy, and responsive typography QA. |
+| `japanese-typography-consultant` | `skills/japanese-typography-consultant/SKILL.md` | Review Chinese and East Asian typography with Japanese-inspired spacing, semantic line breaks, grid discipline, mixed-script hierarchy, and restrained typographic consultant judgment. |
+| `corporate-website-generator` | `skills/corporate-website-generator/SKILL.md` | Generate corporate official website brand-card systems with PM intake, design director strategy, brand design, color design, visual assets, UI design, and separated output directories. |
 
+Use `brand-orchestrator` when the user wants a complete end-to-end brand workflow, multi-agent/subagent coordination, parallel specialist work, staged review gates, or a full operating system from brand input to final identity.
+Use `brand-agent-roles` when the user wants to design the subagent team, assign specialist responsibilities, create role prompts, define output contracts, or clarify division of labor.
+Use `brand-architect` when the user wants a complete AI Brand Architect workflow, Brand DNA, brand archaeology, cultural roots, human narrative, Jungian archetypes, brand myth, brand civilization, symbol systems, distinctiveness checks, restraint checks, timelessness checks, visual identity, or brand guidelines before logo generation.
 Use `base-logo-generator` for foundational company logos, product logos, app icons, campaign marks, cultural/creative merchandise logos, and sub-brand marks.
 Use `mascot-logo-generator` when the logo should come from a mascot-like source such as a paw, animal head, antlers, tusks, alien eyes, crescent moon, helmet, or similar recognizable feature.
 Use `logo-colorway-generator` after a logo already exists and the user wants to add color palettes, recolor the board, or generate colorway applications.
+Use `content-copy-validator` before design or publication when terminology, acronyms, factual claims, naming, Chinese copy, mixed-language wording, CTA clarity, or unsupported claims need validation.
+Use `typography-system-designer` when text hierarchy, Chinese/English mixed typesetting, headline rhythm, font roles, type scale, line height, CTA text hierarchy, console labels, or responsive typography needs a dedicated design pass.
+Use `japanese-typography-consultant` after typography design when Chinese typography, East Asian rhythm, Japanese-inspired ma spacing, semantic headline line breaks, quiet body copy, or mixed-script hierarchy needs senior consultant review.
+Use `corporate-website-generator` when the user wants an official website, homepage, enterprise brand card, role-based website design workflow, PM intake, design director review, brand/color/UI planning, visual asset directories, or a website that explains what the company does at first glance.
+
+Design Skill Runtime v2 modules:
+- `core/runtime.py` runs route -> prompt compile -> selected skill -> critic -> memory writer.
+- `core/prompt_compiler.py` preserves brand memory, last design, scene, and task as structured prompt context.
+- `skills/skill_router.py` selects `corporate_website_skill`, `social_media_skill`, `ppt_skill`, `poster_skill`, or `logo_skill`.
+- `skills/corporate_website_skill.py` generates a role-based corporate official website package and separated output tree.
+- `skills/social_media_skill.py` generates a publishable social media carousel plan from brand DNA and content input.
+- `core/critic_agent.py` checks clarity, brand consistency, visual balance, and issues.
+- `core/memory_writer.py` appends asset history and updates visual DNA.
