@@ -14,6 +14,16 @@ This branch focuses specifically on generating a company's **front-door official
 
 ---
 
+## Example
+
+Below is a generated front-door website example using the SanBaoTech brand assets and AI business direction. It is a short preview crop, not a full long-page screenshot, so readers can quickly judge the brand tone, business clarity, and visual quality.
+
+<p align="center">
+  <img src="outputs/sanbao-ai-official-site/preview-hero.png" alt="SanBaoTech corporate website generated example" width="760" />
+</p>
+
+---
+
 ## Why This Exists
 
 A corporate official website is not a pretty long image or a stack of marketing cards. It is the first entrance for users to understand the company: the first glance should explain who the company is, the second glance should explain what problem it solves, and the rest should build enough trust for action.

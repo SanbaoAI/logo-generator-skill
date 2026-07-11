@@ -14,6 +14,16 @@
 
 ---
 
+## 示例效果
+
+下面是用三宝国品牌资产和 AI 业务方向生成的企业门面官网示例。它不是完整长图预览，而是截取首屏和关键叙事开头，方便快速判断官网的品牌气质、业务表达和视觉完成度。
+
+<p align="center">
+  <img src="outputs/sanbao-ai-official-site/preview-hero.png" alt="SanBaoTech corporate website generated example" width="760" />
+</p>
+
+---
+
 ## 为什么需要它
 
 企业官网吗不是一张好看的长图，也不是几个营销卡片的组合。它是用户理解企业的第一入口：第一眼要知道这家公司是谁，第二眼要知道它能解决什么问题，继续看下去要建立信任并愿意行动。
