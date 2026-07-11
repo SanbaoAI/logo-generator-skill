@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local/generated experiment decks kept out of commits by default.
+outputs/design-skill-runtime-v2-promo*/

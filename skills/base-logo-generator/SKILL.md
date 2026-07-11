@@ -7,6 +7,8 @@ description: Generate logo creative directions, image-generation prompts, and op
 
 Use this skill to turn a business, product, campaign, or cultural/creative brief into a practical logo creative package, and to generate a logo image when the user explicitly asks to create or render one.
 
+If the user asks for Brand DNA, brand archaeology, human narrative, archetypes, brand myth, brand civilization, distinctiveness scoring, timelessness testing, full brand guidelines, or an AI Brand Architect workflow, use `brand-architect` first and treat this skill as the downstream logo execution layer.
+
 ## Workflow
 
 1. Identify the logo type: company/brand, product, cultural/creative merchandise, campaign/advertising, event, app, sub-brand, personal brand, or other.
