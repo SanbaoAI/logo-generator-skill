@@ -1,18 +1,14 @@
-# AI Corporate Website Brand Designer
+# AI Corporate Website Generator
 
-*Brand-led corporate website generation for AI agents*
+*Brand-led corporate front-door website generation*
 
-**Agent Skills** that turn company information, brand strategy, logo assets, and business direction into a deployable corporate website design system. The goal is no longer "make another logo"; the goal is to use product management, copy validation, design direction, brand design, color, typography, visual assets, and UI design to create an official website that works as an enterprise brand card.
+This project is a **full brand design system for companies**: brand positioning, logo, color, typography, visual assets, and scenario-specific brand expression. It helps companies systematize how they explain who they are, what they do, what they feel like, and what users can get from them.
+
+This branch focuses specifically on generating a company's **front-door official website**. It is for teams that do not want to write code from scratch or settle for generic templates: provide company information, brand assets, and business direction, then generate a premium website template that explains the business and expresses the brand in minutes.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Supported agents](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#installing) [![Skills](https://img.shields.io/badge/Skills-10-green.svg)](#skills) [![Website generation](https://img.shields.io/badge/Website-Brand%20Card%20System-orange.svg)](#codex--website-generation)
 
 **[中文](README.zh-CN.md)** &nbsp;·&nbsp; **English**
-
-<p align="center"><sub>Corporate website template &mdash; who the company is, what it does, what it feels like, and what users get</sub></p>
-<p align="center">
-  <img src="outputs/sanbao-ai-official-site/preview-desktop.png" alt="SanBaoTech AI corporate website desktop preview" width="72%" />
-  <img src="outputs/sanbao-ai-official-site/preview-mobile.png" alt="SanBaoTech AI corporate website mobile preview" width="20%" />
-</p>
 
 [Install](#installing) · [Website Workflow](#corporate-brand-card-website-workflow) · [Runtime](#design-skill-runtime-v2) · [Skills](#skills) · [Schemas](#input-schemas) · [FAQ](#faq)
 
@@ -20,7 +16,9 @@
 
 ## Why This Exists
 
-This branch has moved beyond **logo generation** into **brand-led corporate website generation**. Many website generators only assemble a hero, a few cards, and a vague slogan. This system focuses on the official website as an enterprise brand card: visitors should understand the company, category, audience, tone, value, and next action in the first viewport.
+A corporate official website is not a pretty long image or a stack of marketing cards. It is the first entrance for users to understand the company: the first glance should explain who the company is, the second glance should explain what problem it solves, and the rest should build enough trust for action.
+
+This branch treats website generation as a brand design workflow, not a page assembly workflow:
 
 ```text
 Company information / brand assets / business direction
@@ -35,10 +33,10 @@ The website is the primary deliverable. Brand DNA, logo, color, copy, typography
 
 Core capabilities:
 
-1. **Enterprise brand-card websites**: first viewport communicates company name, category, core value, target users, trust tone, and action path.
-2. **Role-based design workflow**: product manager, copy validator, design director, brand, color, typography, visual asset, UI, and final review roles work in sequence.
+1. **No coding required**: describe the company, business, and brand preferences in natural language to get a website design plan and static template.
+2. **Minutes to a website draft**: quickly create a premium, discussable, previewable website foundation instead of staying at abstract advice.
 3. **Brand-led visual system**: the site is not a generic template; its visual language comes from brand assets, industry category, and business value.
-4. **Chinese and mixed-language typography**: typography system and Japanese-inspired consultant review handle Chinese line breaks, whitespace, hierarchy, and technical terms.
+4. **Enterprise brand-card first viewport**: communicate company name, category, core value, target users, trust tone, and action path.
 5. **Separated delivery**: product brief, copy validation, design direction, brand design, color system, typography system, visual assets, UI, and website template are output separately.
 
 ## Installing
