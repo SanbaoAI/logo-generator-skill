@@ -1,65 +1,45 @@
-# AI Brand Architect Skill
+# AI Corporate Website Brand Designer
 
-*面向 AI Agent 的品牌智能与视觉识别系统*
+*基于品牌设计的企业官网生成系统*
 
-**Agent Skills**，把品牌输入变成一套可调度的 AI Brand Architect 工作体系：总控工作流、subagent 分工、Brand DNA、视觉识别、Logo 方向、吉祥物标志、场景化配色，以及面向企业品牌名片的下一代官网吗范本。配合 **Codex** 分派专家任务、整合结果，并通过 `imagegen` 或前端模板直接生成可检查的视觉产物。
+**Agent Skills**，把企业信息、品牌理念、Logo 资产和业务方向转成一套可落地的企业官网设计系统。它的核心不是“再做一个 Logo”，而是通过产品经理、文案校验、总视觉设计、品牌设计、色彩设计、文字排版、视觉素材和 UI 设计，把品牌变成一张能被用户一眼看懂的企业官网名片。
 
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![支持的工具](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#安装) [![技能数](https://img.shields.io/badge/Skills-10-green.svg)](#技能) [![图像生成](https://img.shields.io/badge/Image%20Generation-GPT%20Image%20%C2%B7%20Midjourney%20%C2%B7%20Flux%20%C2%B7%20Ideogram-orange.svg)](#codex-与图像生成)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![支持的工具](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#安装) [![技能数](https://img.shields.io/badge/Skills-10-green.svg)](#技能) [![官网生成](https://img.shields.io/badge/Website-Brand%20Card%20System-orange.svg)](#codex-与官网生成)
 
 **中文** &nbsp;·&nbsp; **[English](README.md)**
 
-<p align="center"><sub>基础 Logo &mdash; 高级克制的企业与产品标志</sub></p>
+<p align="center"><sub>企业官网范本 &mdash; 让用户第一眼知道公司是谁、做什么、什么调性、能得到什么</sub></p>
 <p align="center">
-  <img src="skills/base-logo-generator/assets/sanbaotech-brand-system-board.png" alt="SanBaoTech brand system board" width="32%" />
-  <img src="skills/base-logo-generator/assets/moss-lab-brand-system-board.png" alt="Moss Lab brand system board" width="32%" />
-  <img src="skills/base-logo-generator/assets/low-energy-brand-system-board.png" alt="Low Energy brand system board" width="32%" />
+  <img src="outputs/sanbao-ai-official-site/preview-desktop.png" alt="SanBaoTech AI corporate website desktop preview" width="72%" />
+  <img src="outputs/sanbao-ai-official-site/preview-mobile.png" alt="SanBaoTech AI corporate website mobile preview" width="20%" />
 </p>
 
-<p align="center"><sub>吉祥物 Logo &mdash; 从动物、角色和天体中提取标志性特征</sub></p>
-<p align="center">
-  <img src="skills/mascot-logo-generator/assets/aster-koi-brand-system-board.png" alt="Aster Koi mascot brand system board" width="32%" />
-  <img src="skills/mascot-logo-generator/assets/strix-forge-brand-system-board.png" alt="Strix Forge mascot brand system board" width="32%" />
-  <img src="skills/mascot-logo-generator/assets/manta-vale-brand-system-board.png" alt="Manta Vale mascot brand system board" width="32%" />
-</p>
-
-<p align="center"><sub>配色 &mdash; 场景化改色与标志性品牌色彩</sub></p>
-<p align="center">
-  <img src="skills/logo-colorway-generator/assets/sanbaotech-colorway-board.png" alt="SanBaoTech colorway board" width="32%" />
-  <img src="skills/logo-colorway-generator/assets/aster-koi-colorway-board.png" alt="Aster Koi colorway board" width="32%" />
-  <img src="skills/logo-colorway-generator/assets/manta-vale-colorway-board.png" alt="Manta Vale colorway board" width="32%" />
-</p>
-
-[安装](#安装) · [技能](#技能) · [怎么选？](#怎么选) · [Codex 与图像生成](#codex-与图像生成) · [工作流](#工作流) · [总调度](#brand-orchestrator) · [分工](#brand-agent-roles) · [品牌架构](#brand-architect) · [基础](#base-logo-generator) · [吉祥物](#mascot-logo-generator) · [配色](#logo-colorway-generator) · [官网](#corporate-website-generator) · [Schema](#输入-schema) · [FAQ](#常见问题)
+[安装](#安装) · [官网工作流](#企业品牌名片型官网工作流) · [Runtime](#design-skill-runtime-v2) · [技能](#技能) · [Schema](#输入-schema) · [FAQ](#常见问题)
 
 ---
 
 ## 为什么需要它
 
-很多 Logo 提示词停留在"做一个极简 Logo"。这个仓库正在走向一套完整的 **AI Brand Architect 工作体系** —— 十个模块化技能，既可以独立使用，也可以串联为流水线：
+这个分支的核心已经从 **Logo 生成** 升级为 **基于品牌设计的企业官网吗生成**。很多官网生成器只会堆一个 hero、几个卡片和一句空泛口号；这个系统关注的是企业品牌名片：用户进入第一屏，就能知道公司是谁、做什么、适合谁、什么调性、能得到什么。
 
 ```text
-输入品牌
--> 调度专家 subagent
--> 理解品牌
--> 构建 Brand DNA
--> 表达品牌
--> 审核与修正
+企业信息 / 品牌资产 / 业务方向
+-> 产品经理访谈与价值澄清
+-> 文案与术语校验
+-> 品牌、色彩、文字和视觉系统设计
+-> 企业官网页面与素材分目录输出
+-> 总设计复核
 ```
 
-1. **`brand-orchestrator`** —— 总调度：项目 intake、subagent 分派、阶段门、整合、QA 和最终交付
-2. **`brand-agent-roles`** —— 分工体系：专家 subagent 角色、任务提示词、输出契约和交接规则
-3. **`brand-architect`** —— 先做 Brand DNA：品牌考古、人文意义、品牌原型、品牌神话、品牌文明、符号发现、评分、时间测试和品牌指南
-4. **`base-logo-generator`** —— 以高级克制为基础，生成企业和产品 Logo
-5. **`mascot-logo-generator`** —— 从动物、角色或天体中提取标志性特征，生成吉祥物 Logo
-6. **`logo-colorway-generator`** —— 为已有 Logo 增加场景化配色方案，让标志第一眼就抓住用户眼球
-7. **`content-copy-validator`** —— 对术语、缩写、事实主张、命名一致性、中文表达、中英混排和 CTA 做文字内容校验
-8. **`typography-system-designer`** —— 为中英混排官网、AI 产品页、dashboard、字号系统、标题断行和响应式文字 QA 做专业文字排版系统
-9. **`japanese-typography-consultant`** —— 借鉴日本优秀设计中的留白、断句、网格、克制层级和东亚文字节奏，做资深文字排版顾问审查
-10. **`corporate-website-generator`** —— 生成下一代企业品牌名片型官网范本，包含 PM 访谈、文字内容校验、总设计策略、品牌设计、色彩设计、文字排版、文字顾问、视觉素材、UI 设计与分目录交付
+官网是主交付物，Brand DNA、Logo、配色、文案、文字排版、视觉素材和 UI 都是为了让官网更准确、更高级、更有企业识别度。
 
-总调度技能组织完整流程；分工技能定义专家团队；品牌架构技能输出 **Brand DNA**；视觉技能输出的是**品牌系统展示板** —— 带编号的方形规范网格，包含主标、favicon、seal、字标 lockup、黑白/象牙白应用、mockup、压印应用和 symbol meaning。不仅仅是白底居中单 Logo。
+核心能力：
 
-每个技能只做一件事。只装你需要的，或串联使用实现品牌 → subagent 研究 → Brand DNA → Logo → 配色 → 审核的完整流水线。
+1. **企业品牌名片型官网**：第一屏明确公司名称、业务类别、核心价值、目标用户、可信调性和行动入口。
+2. **多岗位设计工作流**：产品经理、内容校验、总设计、品牌、色彩、文字、视觉素材、UI 和最终复核按节点协作。
+3. **品牌驱动视觉系统**：不是套模板，而是从品牌资产、行业属性和业务价值推导官网视觉语言。
+4. **中文与中英混排排版**：加入文字排版系统和日式排版顾问，控制中文断行、留白、层级和技术词表达。
+5. **分目录交付**：产品简报、文案校验、设计方向、品牌设计、色彩系统、文字系统、视觉素材、UI、官网模板分别输出。
 
 ## 安装
 
@@ -98,6 +78,7 @@ cp -r skills/brand-orchestrator ~/.codex/skills/
 
 | 技能（目录） | 安装名 | 说明 |
 | --- | --- | --- |
+| **corporate-website-generator** | `corporate-website-generator` | 核心技能：企业官网吗生成器。通过 PM 访谈、文字内容校验、总设计策略、品牌设计、色彩设计、文字排版、文字顾问、视觉素材设计和 UI 设计，生成企业品牌名片型官网范本及分目录交付结构。 |
 | **brand-orchestrator** | `brand-orchestrator` | AI Brand Architect 系统的完整工作流总控。规划项目、启动或模拟专家 subagent、分派研究与创意任务、运行阶段门、解决冲突、路由到视觉技能并组装最终交付。 |
 | **brand-agent-roles** | `brand-agent-roles` | 面向 subagent 团队的分工技能。定义专家角色、任务提示词、输出契约、交接规则、边界和 QA 责任，覆盖品牌考古、人文洞察、神话、文明、符号、审核、视觉、提示词和指南。 |
 | **brand-architect** | `brand-architect` | 完整 AI Brand Architect 工作流。先构建 Brand DNA，再开始视觉：历史语境、人文叙事、荣格原型、品牌神话、品牌文明、符号发现、辨识度评分、克制评分、时间测试、视觉识别和品牌指南。Logo 是最终表达，不是起点。 |
@@ -107,11 +88,11 @@ cp -r skills/brand-orchestrator ~/.codex/skills/
 | **content-copy-validator** | `content-copy-validator` | 文字内容校验。用于术语、缩写、事实主张、命名一致性、中文表达、中英混排、CTA 清晰度和未证实主张检查。 |
 | **typography-system-designer** | `typography-system-designer` | 文字排版系统设计。用于官网、AI/科技产品页、dashboard、中英混排、字号系统、标题断行、CTA 层级和响应式文字 QA。 |
 | **japanese-typography-consultant** | `japanese-typography-consultant` | 文字排版顾问。借鉴日本设计的留白、语义断行、网格秩序、安静正文和中英混排层级，审查中文与东亚文字排版。 |
-| **corporate-website-generator** | `corporate-website-generator` | 企业官网吗生成器。通过 PM 访谈、总设计策略、品牌设计、色彩设计、文字排版、文字顾问、视觉素材设计和 UI 设计，生成企业品牌名片型官网范本及分目录交付结构。 |
 
 ### 怎么选？
 
-- 当你需要端到端系统、subagent 分派、阶段门、整合、QA 和最终交付时，先用 **brand-orchestrator**。
+- 当你要做“企业品牌名片型官网”或下一代企业官网范本时，优先用 **corporate-website-generator**。
+- 当你需要端到端系统、subagent 分派、阶段门、整合、QA 和最终交付时，用 **brand-orchestrator** 组织全流程。
 - 当你需要定义专家团队、角色提示词、输出契约和交接规则时，用 **brand-agent-roles**。
 - 当你需要 Brand DNA、文化根源、策略、符号验证、时间测试和品牌指南时，用 **brand-architect**。
 - 用 **base-logo-generator** 做企业和产品 Logo —— 干净、高级、克制。
@@ -120,28 +101,28 @@ cp -r skills/brand-orchestrator ~/.codex/skills/
 - 当术语、缩写、事实主张、命名、中文文案、中英混排或 CTA 需要设计前校验时，用 **content-copy-validator**。
 - 当文字层级、中英混排、标题节奏、响应式字号、CTA/标签可读性需要单独设计时，用 **typography-system-designer**。
 - 当中文断行、东亚文字节奏、日式留白、安静正文和中英混排层级需要资深顾问审查时，用 **japanese-typography-consultant**。
-- 当品牌识别需要延展为官网，让用户第一眼知道公司做什么、什么调性、能得到什么时，用 **corporate-website-generator**。
-- 串联 **orchestrator → roles → architect → base → colorway** 或 **orchestrator → roles → architect → mascot → colorway** 实现完整品牌识别流水线。
+- 当已有 Logo 需要成为官网里的品牌资产时，再调用 **base-logo-generator**、**mascot-logo-generator** 或 **logo-colorway-generator** 做支撑。
+- 推荐官网流水线：**corporate website → copy validation → typography → typography consultant → visual assets → UI → review**。
 
-## Codex 与图像生成
+## Codex 与官网生成
 
-十个技能都原生支持 **Codex**。当 subagent 可用时，总调度技能可以并行分派专家任务；当图像生成工具可用时（如 Codex `imagegen`、ChatGPT Images），视觉技能会生成完整展示板。
+十个技能都原生支持 **Codex**。当 subagent 可用时，总调度技能可以并行分派专家任务；当图像生成工具可用时（如 Codex `imagegen`、ChatGPT Images），视觉技能可以生成品牌素材；当目标是官网时，`corporate-website-generator` 会输出页面结构、视觉系统、素材目录和可检查的静态官网范本。
 
-**没有图像工具？** 技能会返回最终提示词，可直接粘贴到 GPT Image、Midjourney、Flux 或 Ideogram。
+**没有前端或图像工具？** 技能仍会返回结构化官网设计方案、页面叙事、素材清单、文案校验和可交给设计/开发继续执行的提示词。
 
-**系统提示：** 在 prompt 中声明流水线 —— 例如"运行品牌总调度，启用 subagent，然后生成视觉识别展示板和配色" —— agent 会按顺序执行技能。
+**系统提示：** 在 prompt 中声明目标 —— 例如"用我们的 Logo 和品牌信息生成一个企业品牌名片型官网" —— agent 会优先走官网工作流，而不是只做 Logo 或展示板。
 
 ## 工作流
 
 ```
-   第一步 — 总调度              第二步 — 专家分工              第三步 — Brand DNA       第四步 — 视觉识别
- ┌─────────────────────────┐   ┌─────────────────────────┐   ┌────────────────────┐   ┌───────────────────────────────┐
- │  brand-orchestrator     │ → │  brand-agent-roles      │ → │  brand-architect   │ → │  base/mascot + colorway       │
- └─────────────────────────┘   └─────────────────────────┘   └────────────────────┘   └───────────────────────────────┘
-   计划 + 阶段门 + 整合          subagent 角色契约              意义 + 文明              Logo + 展示板 + 配色
+   第一步 — 企业澄清          第二步 — 内容与品牌系统          第三步 — 官网设计          第四步 — 分目录交付
+ ┌──────────────────────┐   ┌──────────────────────────┐   ┌──────────────────────┐   ┌──────────────────────────┐
+ │ PM intake             │ → │ Copy + Brand + Typography │ → │ Visual assets + UI    │ → │ Website template + QA    │
+ └──────────────────────┘   └──────────────────────────┘   └──────────────────────┘   └──────────────────────────┘
+   公司是谁、做什么、给谁        术语、Logo、色彩、文字            页面布局、素材、交互           官网文件、素材目录、复核
 ```
 
-每个技能都可独立使用。当工作需要被作为多 agent 系统推进时，使用总调度技能。
+每个技能都可独立使用，但这个分支默认把官网作为主场景。Logo、配色和 Brand DNA 是企业官网的上游材料，不是最终宣传重心。
 
 ## 企业品牌名片型官网工作流
 
@@ -559,15 +540,15 @@ logo-generator-skill/
 
 **只能生成提示词吗？**
 
-不是。例如使用 Codex 时，技能可以直接生成合适的图像。
+不是。这个分支可以输出官网结构、设计简报、素材目录、静态 HTML/CSS 范本和预览图；提示词只是视觉素材生成时的辅助产物。
 
-**为什么默认是品牌系统展示板，而不是白底居中 Logo？**
+**为什么不是普通 landing page？**
 
-展示板可以同时检验主标、favicon、seal、lockup、单色应用、mockup 和 symbol meaning。白底单 Logo 无法告诉你它在 16×16 或单色印刷时是否还能用。
+因为目标不是堆营销组件，而是把企业的品牌、业务、调性和收益在第一屏说清楚。官网必须像一张品牌名片，先建立识别与信任，再承接业务转化。
 
-**吉祥物 Logo 只能选动物吗？**
+**Logo 技能还有用吗？**
 
-不是。不论是动物、植物、天体还是食物等，skill 都是提取其标志性特征之后，生成更合适的 Logo。
+有用，但它不再是宣传重心。Logo、配色和 Brand DNA 是企业官网的上游品牌资产，用来支撑官网视觉系统、首屏识别和素材延展。
 
 ## 许可证
 

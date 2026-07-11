@@ -1,65 +1,45 @@
-# AI Brand Architect Skill
+# AI Corporate Website Brand Designer
 
-*Brand Intelligence and Visual Identity Systems for AI Agents*
+*Brand-led corporate website generation for AI agents*
 
-**Agent Skills** that turn a brand input into a coordinated AI Brand Architect operating system: orchestration, subagent division of labor, Brand DNA, visual identity, logo direction, mascot marks, scenario colorways, and next-generation corporate official website templates that work as enterprise brand cards. Pair with **Codex** to delegate specialist work, synthesize the results, and generate polished visual outputs through `imagegen` or frontend templates.
+**Agent Skills** that turn company information, brand strategy, logo assets, and business direction into a deployable corporate website design system. The goal is no longer "make another logo"; the goal is to use product management, copy validation, design direction, brand design, color, typography, visual assets, and UI design to create an official website that works as an enterprise brand card.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Supported agents](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#installing) [![Skills](https://img.shields.io/badge/Skills-10-green.svg)](#skills) [![Image generation](https://img.shields.io/badge/Image%20Generation-GPT%20Image%20%C2%B7%20Midjourney%20%C2%B7%20Flux%20%C2%B7%20Ideogram-orange.svg)](#codex--image-generation)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Supported agents](https://img.shields.io/badge/Tools-Codex%20%C2%B7%20Claude%20Code%20%C2%B7%20Cursor%20%C2%B7%20ChatGPT-blue.svg)](#installing) [![Skills](https://img.shields.io/badge/Skills-10-green.svg)](#skills) [![Website generation](https://img.shields.io/badge/Website-Brand%20Card%20System-orange.svg)](#codex--website-generation)
 
 **[中文](README.zh-CN.md)** &nbsp;·&nbsp; **English**
 
-<p align="center"><sub>Base Logo &mdash; premium, restrained identity marks</sub></p>
+<p align="center"><sub>Corporate website template &mdash; who the company is, what it does, what it feels like, and what users get</sub></p>
 <p align="center">
-  <img src="skills/base-logo-generator/assets/sanbaotech-brand-system-board.png" alt="SanBaoTech brand system board" width="32%" />
-  <img src="skills/base-logo-generator/assets/moss-lab-brand-system-board.png" alt="Moss Lab brand system board" width="32%" />
-  <img src="skills/base-logo-generator/assets/low-energy-brand-system-board.png" alt="Low Energy brand system board" width="32%" />
+  <img src="outputs/sanbao-ai-official-site/preview-desktop.png" alt="SanBaoTech AI corporate website desktop preview" width="72%" />
+  <img src="outputs/sanbao-ai-official-site/preview-mobile.png" alt="SanBaoTech AI corporate website mobile preview" width="20%" />
 </p>
 
-<p align="center"><sub>Mascot Logo &mdash; feature extraction from animals, characters, and celestial forms</sub></p>
-<p align="center">
-  <img src="skills/mascot-logo-generator/assets/aster-koi-brand-system-board.png" alt="Aster Koi mascot brand system board" width="32%" />
-  <img src="skills/mascot-logo-generator/assets/strix-forge-brand-system-board.png" alt="Strix Forge mascot brand system board" width="32%" />
-  <img src="skills/mascot-logo-generator/assets/manta-vale-brand-system-board.png" alt="Manta Vale mascot brand system board" width="32%" />
-</p>
-
-<p align="center"><sub>Colorway &mdash; scenario-based recolor and signature brand color</sub></p>
-<p align="center">
-  <img src="skills/logo-colorway-generator/assets/sanbaotech-colorway-board.png" alt="SanBaoTech colorway board" width="32%" />
-  <img src="skills/logo-colorway-generator/assets/aster-koi-colorway-board.png" alt="Aster Koi colorway board" width="32%" />
-  <img src="skills/logo-colorway-generator/assets/manta-vale-colorway-board.png" alt="Manta Vale colorway board" width="32%" />
-</p>
-
-[Install](#installing) · [Skills](#skills) · [Which one?](#which-skill-should-i-use) · [Codex & Images](#codex--image-generation) · [Workflow](#workflow) · [Orchestrator](#brand-orchestrator) · [Roles](#brand-agent-roles) · [Architect](#brand-architect) · [Base](#base-logo-generator) · [Mascot](#mascot-logo-generator) · [Colorway](#logo-colorway-generator) · [Website](#corporate-website-generator) · [Schemas](#input-schemas) · [FAQ](#faq)
+[Install](#installing) · [Website Workflow](#corporate-brand-card-website-workflow) · [Runtime](#design-skill-runtime-v2) · [Skills](#skills) · [Schemas](#input-schemas) · [FAQ](#faq)
 
 ---
 
 ## Why This Exists
 
-Most logo prompts stop at *"make a minimal logo."* This repo is evolving into an **AI Brand Architect operating system** — ten modular skills that work independently or as a pipeline:
+This branch has moved beyond **logo generation** into **brand-led corporate website generation**. Many website generators only assemble a hero, a few cards, and a vague slogan. This system focuses on the official website as an enterprise brand card: visitors should understand the company, category, audience, tone, value, and next action in the first viewport.
 
 ```text
-Input brand
--> orchestrate specialist agents
--> understand brand
--> build Brand DNA
--> express brand
--> audit and refine
+Company information / brand assets / business direction
+-> product-manager intake and value clarification
+-> copy and terminology validation
+-> brand, color, typography, and visual system design
+-> corporate website template and separated asset output
+-> design-director final review
 ```
 
-1. **`brand-orchestrator`** — the overall workflow controller: intake, subagent delegation, phase gates, synthesis, QA, and final delivery
-2. **`brand-agent-roles`** — the division-of-labor system: specialist subagent roles, prompts, output contracts, and handoff rules
-3. **`brand-architect`** — Brand DNA before visuals: archaeology, human meaning, archetypes, myth, civilization, symbols, scoring, timelessness, and guidelines
-4. **`base-logo-generator`** — premium, restrained logo design for companies and products
-5. **`mascot-logo-generator`** — mascot-derived marks that extract one recognizable feature from an animal, character, or celestial form
-6. **`logo-colorway-generator`** — scenario-based color systems that make any existing logo pop at first glance
-7. **`content-copy-validator`** — copy QA for terminology, acronyms, factual claims, naming, Chinese wording, mixed-language expression, and CTA clarity
-8. **`typography-system-designer`** — professional typography systems for mixed Chinese-English websites, AI product pages, dashboards, type scales, line breaks, and responsive typography QA
-9. **`japanese-typography-consultant`** — senior typography consultant review using Japanese-inspired spacing discipline, semantic Chinese line breaks, grid calm, and restrained mixed-script hierarchy
-10. **`corporate-website-generator`** — next-generation corporate official website templates that work as enterprise brand cards, with PM intake, content validation, design director review, brand design, color design, typography, typography consultant review, visual assets, UI design, and separated output folders
+The website is the primary deliverable. Brand DNA, logo, color, copy, typography, visual assets, and UI are supporting systems that make the website clearer, more premium, and more recognizable.
 
-The orchestrator coordinates the system; the roles skill defines expert subagents; the architecture skill outputs **Brand DNA**; the visual skills output a **brand-system board** — a square guideline grid with numbered modules: main logo, favicon, seal, wordmark lockup, black/ivory applications, mockups, embossed application, and symbol meaning. Not just a centered logo on white.
+Core capabilities:
 
-Each skill does one job. Install only what you need, or chain them for a full brand → subagent research → Brand DNA → logo → colorway → audit pipeline.
+1. **Enterprise brand-card websites**: first viewport communicates company name, category, core value, target users, trust tone, and action path.
+2. **Role-based design workflow**: product manager, copy validator, design director, brand, color, typography, visual asset, UI, and final review roles work in sequence.
+3. **Brand-led visual system**: the site is not a generic template; its visual language comes from brand assets, industry category, and business value.
+4. **Chinese and mixed-language typography**: typography system and Japanese-inspired consultant review handle Chinese line breaks, whitespace, hierarchy, and technical terms.
+5. **Separated delivery**: product brief, copy validation, design direction, brand design, color system, typography system, visual assets, UI, and website template are output separately.
 
 ## Installing
 
@@ -98,6 +78,7 @@ Each skill does one job; you do not need all of them at once. The `Install name`
 
 | Skill (folder) | Install name | Description |
 | --- | --- | --- |
+| **corporate-website-generator** | `corporate-website-generator` | Core skill: corporate official website generator. Uses PM intake, copy validation, design director strategy, brand design, color design, typography system design, typography consultant review, visual asset design, and UI design to create an enterprise brand-card website template with separated output directories. |
 | **brand-orchestrator** | `brand-orchestrator` | Complete workflow controller for the AI Brand Architect system. Plans the project, spawns or simulates specialist subagents, assigns research and creative work, runs phase gates, resolves conflicts, routes to visual skills, and assembles the final deliverable. |
 | **brand-agent-roles** | `brand-agent-roles` | Division-of-labor skill for subagent teams. Defines specialist roles, prompts, output contracts, handoff rules, overlap boundaries, and QA responsibilities for brand archaeology, human insight, myth, civilization, symbols, audits, visual identity, prompts, and guidelines. |
 | **brand-architect** | `brand-architect` | Complete AI Brand Architect workflow. Builds Brand DNA before visuals: historical context, human narrative, Jungian archetypes, brand myth, brand civilization, symbol discovery, distinctiveness scoring, restraint scoring, timelessness testing, visual identity, and brand guidelines. Logo becomes the final expression, not the starting point. |
@@ -107,11 +88,11 @@ Each skill does one job; you do not need all of them at once. The `Install name`
 | **content-copy-validator** | `content-copy-validator` | Copy validation for terminology, acronyms, factual claims, naming consistency, Chinese wording, mixed-language expression, CTA clarity, and unsupported claims before design or publication. |
 | **typography-system-designer** | `typography-system-designer` | Typography system designer for websites, AI/technology pages, dashboards, mixed Chinese-English layouts, type scales, hero line breaks, CTA hierarchy, and responsive typography QA. |
 | **japanese-typography-consultant** | `japanese-typography-consultant` | Senior typography consultant pass for Chinese and East Asian layouts using Japanese-inspired whitespace, semantic line breaks, grid discipline, quiet body copy, and mixed-script hierarchy. |
-| **corporate-website-generator** | `corporate-website-generator` | Corporate official website generator. Uses PM intake, design director strategy, brand design, color design, typography design, typography consultant review, visual asset design, and UI design to create an enterprise brand-card website template with separated output directories. |
 
 ### Which skill should I use?
 
-- Start with **brand-orchestrator** when you want a full end-to-end system, subagent delegation, phase gates, synthesis, QA, and final delivery.
+- Start with **corporate-website-generator** when the goal is a corporate official website or next-generation enterprise brand-card homepage.
+- Use **brand-orchestrator** when you want a full end-to-end system, subagent delegation, phase gates, synthesis, QA, and final delivery.
 - Use **brand-agent-roles** when you need to define the expert team, role prompts, output contracts, and handoff rules.
 - Use **brand-architect** when you want Brand DNA, cultural roots, strategy, symbol validation, timelessness, and guidelines before any logo is drawn.
 - Use **base-logo-generator** for foundational company and product logos — clean, premium, restrained.
@@ -120,28 +101,28 @@ Each skill does one job; you do not need all of them at once. The `Install name`
 - Use **content-copy-validator** before design when terminology, acronyms, claims, naming, Chinese copy, mixed-language wording, or CTA clarity needs validation.
 - Use **typography-system-designer** when text hierarchy, Chinese/English mixed typesetting, headline rhythm, responsive type scale, or CTA/label readability needs a dedicated pass.
 - Use **japanese-typography-consultant** after typography design when Chinese line breaks, East Asian rhythm, ma spacing, quiet body copy, or mixed-script hierarchy needs a senior consultant review.
-- Use **corporate-website-generator** when the brand identity should become an official website that tells users what the company does, what it feels like, and what they can get at first glance.
-- Chain **orchestrator → roles → architect → base → colorway** or **orchestrator → roles → architect → mascot → colorway** for a full brand identity pipeline.
+- Use **base-logo-generator**, **mascot-logo-generator**, or **logo-colorway-generator** when an existing brand mark needs stronger website-ready identity assets.
+- Recommended website pipeline: **corporate website → copy validation → typography → typography consultant → visual assets → UI → review**.
 
-## Codex & Image Generation
+## Codex & Website Generation
 
-All ten skills work with **Codex** out of the box. When subagents are available, the orchestrator can delegate specialist work in parallel; when image-generation tools are available (e.g. Codex `imagegen`, ChatGPT Images), the visual skills generate polished boards.
+All ten skills work with **Codex** out of the box. When subagents are available, the orchestrator can delegate specialist work in parallel; when image-generation tools are available (e.g. Codex `imagegen`, ChatGPT Images), the visual skills can generate brand assets; when the target is a website, `corporate-website-generator` outputs page structure, visual systems, asset folders, and a reviewable static website template.
 
-**No image tool?** The skills return the final prompt ready to paste into GPT Image, Midjourney, Flux, or Ideogram.
+**No frontend or image tool?** The skills still return a structured website design plan, page narrative, asset list, copy validation, and prompts that a designer or developer can continue from.
 
-**System tip:** State the pipeline in your prompt — e.g. *"Run the brand orchestrator with subagents, then generate the identity board and colorway"* — and the agent will follow the skills in sequence.
+**System tip:** State the target clearly — e.g. *"Use our logo and brand information to generate an enterprise brand-card official website"* — and the agent will prioritize the website workflow instead of stopping at a logo or brand board.
 
 ## Workflow
 
 ```
-   Step 1 — orchestrate           Step 2 — specialist work        Step 3 — Brand DNA          Step 4 — visual identity
- ┌─────────────────────────┐     ┌─────────────────────────┐     ┌────────────────────┐     ┌───────────────────────────────┐
- │  brand-orchestrator     │ ──▶ │  brand-agent-roles      │ ──▶ │  brand-architect   │ ──▶ │  base/mascot + colorway       │
- └─────────────────────────┘     └─────────────────────────┘     └────────────────────┘     └───────────────────────────────┘
-   Plan + gates + synthesis        Subagent role contracts         Meaning + civilization       Logo + board + palette
+   Step 1 — clarify company       Step 2 — content + brand system   Step 3 — website design      Step 4 — separated delivery
+ ┌─────────────────────────┐     ┌──────────────────────────┐     ┌──────────────────────┐     ┌──────────────────────────┐
+ │ PM intake                │ ──▶ │ Copy + Brand + Typography │ ──▶ │ Visual assets + UI    │ ──▶ │ Website template + QA    │
+ └─────────────────────────┘     └──────────────────────────┘     └──────────────────────┘     └──────────────────────────┘
+   who, what, for whom             terms, logo, color, type          layout, assets, states       files, folders, review
 ```
 
-Each skill works standalone. Use the orchestrator when the work should be run as a coordinated multi-agent system.
+Each skill works standalone, but this branch defaults to the website as the main scenario. Logo, colorway, and Brand DNA are upstream materials for the corporate website, not the final promotional focus.
 
 ## Corporate Brand-Card Website Workflow
 
@@ -559,15 +540,15 @@ logo-generator-skill/
 
 **Does it only generate prompts?**
 
-No. For example, when using Codex, the skill can generate suitable images directly.
+No. This branch can output website structure, design briefs, asset directories, static HTML/CSS templates, and preview images. Prompts are only supporting artifacts for visual asset generation.
 
-**Why a brand-system board instead of one centered logo?**
+**Why not a generic landing page?**
 
-The board validates the mark across real identity surfaces: favicon, seal, lockup, monochrome, mockup, and meaning diagram. One logo on white doesn't tell you if it survives at 16×16 or in one-color print.
+Because the goal is not to stack marketing components. The website must explain the company's brand, business, tone, and benefit in the first viewport, then turn that recognition into trust and conversion.
 
-**Can mascot logos only use animals?**
+**Are the logo skills still useful?**
 
-No. Whether the source is an animal, plant, celestial body, food, or anything else, the skill extracts its signature feature and generates a more suitable logo.
+Yes, but they are no longer the promotional focus. Logo, colorway, and Brand DNA are upstream brand assets that support website identity, first-screen recognition, and visual extension.
 
 ## License
 
